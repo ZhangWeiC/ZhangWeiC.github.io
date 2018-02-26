@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js,html,css," />
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="设计思路 在刚开始做的时候，我做的是直接在html文件里把页面结构写出来，然后再一个一个功能的加上去，写了几个函数之后，发现这样做各个函数之间不好配合，而且感觉该功能的灵活性不够。所以就尝试动态创建html,并且把整个滑动解锁的功能写成一个组件，感觉这样灵活性性要强许多。  我把代码分为三个部分：页面初始化部分、绑定事件部分、密码操作部分。 1. 页面初始化部分：该部分的主要功能是，动态创建页面D">
+<meta name="keywords" content="js,html,css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html5实现滑动解锁功能">
-<meta property="og:url" content="http://yoursite.com/2017/03/29/html5实现滑动解锁功能/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/02/25/html5实现滑动解锁功能/index.html">
 <meta property="og:site_name" content="小宸兄的博客">
 <meta property="og:description" content="设计思路 在刚开始做的时候，我做的是直接在html文件里把页面结构写出来，然后再一个一个功能的加上去，写了几个函数之后，发现这样做各个函数之间不好配合，而且感觉该功能的灵活性不够。所以就尝试动态创建html,并且把整个滑动解锁的功能写成一个组件，感觉这样灵活性性要强许多。  我把代码分为三个部分：页面初始化部分、绑定事件部分、密码操作部分。 1. 页面初始化部分：该部分的主要功能是，动态创建页面D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-23T05:35:54.334Z">
+<meta property="og:updated_time" content="2018-02-25T01:43:27.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html5实现滑动解锁功能">
 <meta name="twitter:description" content="设计思路 在刚开始做的时候，我做的是直接在html文件里把页面结构写出来，然后再一个一个功能的加上去，写了几个函数之后，发现这样做各个函数之间不好配合，而且感觉该功能的灵活性不够。所以就尝试动态创建html,并且把整个滑动解锁的功能写成一个组件，感觉这样灵活性性要强许多。  我把代码分为三个部分：页面初始化部分、绑定事件部分、密码操作部分。 1. 页面初始化部分：该部分的主要功能是，动态创建页面D">
@@ -119,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/29/html5实现滑动解锁功能/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/25/html5实现滑动解锁功能/"/>
 
 
 
@@ -210,6 +211,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -296,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/html5实现滑动解锁功能/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/25/html5实现滑动解锁功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen">
@@ -325,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T11:31:27+08:00">
-                2017-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-25T00:00:00+08:00">
+                2018-02-25
               </time>
             
 
@@ -366,9 +377,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/29/html5实现滑动解锁功能/#comments" itemprop="discussionUrl">
+                <a href="/2018/02/25/html5实现滑动解锁功能/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/29/html5实现滑动解锁功能/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/02/25/html5实现滑动解锁功能/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -443,8 +454,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">oLock.prototype.pickPoints=<span class="function"><span class="keyword">function</span>(<span class="params">from,to</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> olength=getDis(<span class="keyword">from</span>,to);</span><br><span class="line">	<span class="keyword">var</span> dir=to.index&gt;<span class="keyword">from</span>.index?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> len=<span class="keyword">this</span>.restArr.length;</span><br><span class="line">	<span class="keyword">var</span> i= dir==<span class="number">1</span>?<span class="number">0</span>:(len<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">var</span> limit= dir==<span class="number">1</span>?len:<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>( i!=limit )&#123;</span><br><span class="line">		<span class="keyword">var</span> pt=<span class="keyword">this</span>.restArr[i];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(getDis(pt,<span class="keyword">from</span>)+getDis(pt,to)==olength)&#123;</span><br><span class="line">			<span class="keyword">this</span>.createPoint(pt.x,pt.y);</span><br><span class="line">			<span class="keyword">this</span>.usedArr.push(pt);</span><br><span class="line">			<span class="keyword">this</span>.restArr.splice(i,<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">if</span>(limit&gt;<span class="number">0</span>)&#123;</span><br><span class="line">				i--;</span><br><span class="line">				limit--;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		i+=dir;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">oLock.prototype.boss=<span class="function"><span class="keyword">function</span>(<span class="params">pos</span>)</span>&#123;  <span class="comment">//核心方法</span></span><br><span class="line">		<span class="keyword">this</span>.oGC.clearRect(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">this</span>.oC.width,<span class="keyword">this</span>.oC.height);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.arr.length;i++)&#123;</span><br><span class="line">			<span class="keyword">this</span>.createCle(<span class="keyword">this</span>.arr[i].x, <span class="keyword">this</span>.arr[i].y);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">this</span>.createPoint();</span><br><span class="line">		<span class="keyword">this</span>.createLine(pos);</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.restArr.length);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.restArr.length;i++)&#123;</span><br><span class="line">			<span class="keyword">var</span> tp=<span class="keyword">this</span>.restArr[i];</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">Math</span>.abs(pos.x-tp.x)&lt;<span class="keyword">this</span>.r &amp;&amp; <span class="built_in">Math</span>.abs(pos.y-tp.y)&lt;<span class="keyword">this</span>.r)&#123;</span><br><span class="line">				<span class="keyword">this</span>.createPoint();</span><br><span class="line">				<span class="keyword">this</span>.pickPoints(<span class="keyword">this</span>.usedArr[<span class="keyword">this</span>.usedArr.length<span class="number">-1</span>],tp);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">oLock.prototype.bindEv=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> This=<span class="keyword">this</span>;</span><br><span class="line">		<span class="keyword">this</span>.oC.addEventListener(<span class="string">"touchstart"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> pos=This.getPos(ev);</span><br><span class="line">		    <span class="built_in">console</span>.log(pos);</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;This.arr.length;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>( <span class="built_in">Math</span>.abs(pos.x-This.arr[i].x)&lt;This.r &amp;&amp; <span class="built_in">Math</span>.abs(pos.y-This.arr[i].y)&lt;This.r )&#123;  <span class="comment">//判断点击的位置是不是在小圈圈里面</span></span><br><span class="line">					<span class="comment">// alert(1);</span></span><br><span class="line">					This.onOff=<span class="literal">true</span>;</span><br><span class="line">					This.usedArr.push(This.arr[i]);</span><br><span class="line">					This.restArr.splice(i,<span class="number">1</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">this</span>.oC.addEventListener(<span class="string">"touchmove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(This.onOff)&#123;</span><br><span class="line">				This.boss(This.getPos(ev));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">this</span>.oC.addEventListener(<span class="string">"touchend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(This.onOff)&#123;</span><br><span class="line">				This.onOff=<span class="literal">true</span>;</span><br><span class="line">				This.doPassword(This.usedArr);</span><br><span class="line">				setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">					This.getPoint();    <span class="comment">//touchend之后要初始化页面一下</span></span><br><span class="line">				&#125;,<span class="number">300</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><p>这里的usedArr是指已经被圈出的小圆圈，restArr是指剩下没被全出的小圆圈。boss函数是控制连线，里面的pickPoints函数作用是当触摸点接触到小圈圈的时候，将该小圈圈的index添入usedArr，并删除restArr里面相对应的元素</p>
 <p><strong>此处的坑：一开始并没有注意事件里面this的指向和外面的不同，导致错误，在bindEv里写上var This=this就OK了</strong></p>
-<h3 id="3-密码操作部分："><a href="#3-密码操作部分：" class="headerlink" title="3. 密码操作部分："></a>3. 密码操作部分：</h3><p>此处功能包含，修改密码并删除localStorage里面存的东西；验证输入密码是否与设置的相同；设置密码时各种不符合规则的检查等。</p>
-<p><strong>关键代码：</strong></p>
+<h3 id="3-密码操作部分："><a href="#3-密码操作部分：" class="headerlink" title="3. 密码操作部分："></a>3. 密码操作部分：</h3><pre><code>此处功能包含，修改密码并删除localStorage里面存的东西；验证输入密码是否与设置的相同；设置密码时各种不符合规则的检查等。
+</code></pre><p><strong>关键代码：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">oLock.prototype.selectFun=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> aInput=<span class="built_in">document</span>.getElementsByTagName(<span class="string">"input"</span>);</span><br><span class="line">	<span class="keyword">var</span> that=<span class="keyword">this</span>;</span><br><span class="line">	aInput[<span class="number">0</span>].onfocus=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">"请解锁"</span>;</span><br><span class="line">		oLock.prototype.doPassword=<span class="function"><span class="keyword">function</span>(<span class="params">pw</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>( <span class="built_in">window</span>.localStorage.getItem(<span class="string">'password'</span>) )&#123;</span><br><span class="line">				<span class="keyword">if</span>(that.pwObj.nowPw)&#123;</span><br><span class="line">					<span class="keyword">if</span>(that.checkPassword(that.pwObj.nowPw,pw))&#123;</span><br><span class="line">						<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">'解锁成功'</span>;</span><br><span class="line">						that.createCleLine(<span class="string">'#00F90F'</span>);</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">'解锁失败'</span>;</span><br><span class="line">						that.createCleLine(<span class="string">'red'</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					alert(<span class="string">"还未设置密码"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				alert(<span class="string">"还未设置密码"</span>);</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	aInput[<span class="number">1</span>].onfocus=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">"请绘制解锁图案"</span>;</span><br><span class="line">		that.pwObj=&#123;&#125;;</span><br><span class="line">		that.getPoint();</span><br><span class="line">		oLock.prototype.doPassword=<span class="function"><span class="keyword">function</span>(<span class="params">pw</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(that.pwObj.step==<span class="number">1</span>)&#123;</span><br><span class="line">					<span class="keyword">if</span>(that.checkPassword(that.pwObj.formerPw,pw))&#123;</span><br><span class="line">					that.pwObj.step=<span class="number">2</span>;</span><br><span class="line">					that.pwObj.nowPw=pw;</span><br><span class="line">					<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">'密码保存成功'</span>;</span><br><span class="line">					that.createCleLine(<span class="string">'#00F90F'</span>);</span><br><span class="line">					<span class="built_in">window</span>.localStorage.setItem(<span class="string">'password'</span>,<span class="built_in">JSON</span>.stringify(that.pwObj.nowPw));</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">"两次输入不一致，请重新输入"</span>;</span><br><span class="line">					that.createCleLine(<span class="string">'red'</span>);</span><br><span class="line">					<span class="keyword">delete</span> that.pwObj.step;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(pw.length&lt;<span class="number">5</span>)&#123;</span><br><span class="line">					<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">"密码太短，至少需要五个点"</span>;</span><br><span class="line">					that.createCleLine(<span class="string">'red'</span>);</span><br><span class="line">					that.pwObj=&#123;&#125;;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					that.pwObj.step=<span class="number">1</span>;</span><br><span class="line">					that.pwObj.formerPw=pw;</span><br><span class="line">					<span class="built_in">document</span>.getElementById(<span class="string">'header'</span>).innerHTML=<span class="string">"再次输入"</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个函数主要功能就是通过单选按钮来控制是设置密码还是验证密码，具体做法就是通过改变oLock.prototype.doPassword来实现的，不同的选择会使oLock.prototype.doPassword里面对应的方法不同，从而实现模式的切换。</p>
 <p><strong>遇到的坑：在打开页面的时候并没有触发onfocus事件，所以oLock.prototype.doPassword就不会被定义。解决方法就是在外面先定义一下这个方法。</strong></p>
@@ -473,11 +484,41 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/js/" <i class="fafa-tag"></i> js</a>
+          
+            <a href="/tags/html/" <i class="fafa-tag"></i> html</a>
+          
+            <a href="/tags/css/" <i class="fafa-tag"></i> css</a>
+          
+        </div>
+      
 
       
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/24/搭建博客心得/" rel="next" title="搭建博客心得">
+                <i class="fa fa-chevron-left"></i> 搭建博客心得
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/25/js数据结构与算法学习笔记一/" rel="prev" title="js数据结构与算法学习笔记(一)">
+                js数据结构与算法学习笔记(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -565,7 +606,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -576,12 +617,21 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -805,8 +855,8 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/03/29/html5实现滑动解锁功能/';
-          this.page.identifier = '2017/03/29/html5实现滑动解锁功能/';
+          this.page.url = 'http://yoursite.com/2018/02/25/html5实现滑动解锁功能/';
+          this.page.identifier = '2018/02/25/html5实现滑动解锁功能/';
           this.page.title = 'html5实现滑动解锁功能';
         };
         var d = document, s = d.createElement('script');
