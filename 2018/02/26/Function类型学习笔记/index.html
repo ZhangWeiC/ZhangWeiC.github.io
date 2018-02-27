@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="永远不知好歹 永远热泪盈眶">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小宸兄的博客">
-<meta property="og:url" content="http://yoursite.com/categories/学习心得/index.html">
+<meta name="description" content="Function类型函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。 函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 var sum=new Function(&amp;quot;num1&amp;quot;,&amp;quot;num2&amp;quot;,&amp;quot;return num1+nu">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="引用类型之Function类型学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/02/26/Function类型学习笔记/index.html">
 <meta property="og:site_name" content="小宸兄的博客">
-<meta property="og:description" content="永远不知好歹 永远热泪盈眶">
+<meta property="og:description" content="Function类型函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。 函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 var sum=new Function(&amp;quot;num1&amp;quot;,&amp;quot;num2&amp;quot;,&amp;quot;return num1+nu">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-27T03:28:28.506Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小宸兄的博客">
-<meta name="twitter:description" content="永远不知好歹 永远热泪盈眶">
+<meta name="twitter:title" content="引用类型之Function类型学习笔记">
+<meta name="twitter:description" content="Function类型函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。 函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 var sum=new Function(&amp;quot;num1&amp;quot;,&amp;quot;num2&amp;quot;,&amp;quot;return num1+nu">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/学习心得/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/26/Function类型学习笔记/"/>
 
 
 
 
 
-  <title>分类: 学习心得 | 小宸兄的博客</title>
+  <title>引用类型之Function类型学习笔记 | 小宸兄的博客</title>
   
 
 
@@ -153,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -291,83 +293,254 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>学习心得<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/Function类型学习笔记/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小宸兄的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/26/Function类型学习笔记/" itemprop="url">
-              
-                <span itemprop="name">引用类型之Function类型学习笔记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">引用类型之Function类型学习笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-26T00:00:00+08:00"
-              content="2018-02-26" >
-          02-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T00:00:00+08:00">
+                2018-02-26
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习心得/" itemprop="url" rel="index">
+                    <span itemprop="name">学习心得</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/26/Function类型学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/26/Function类型学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,210
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/25/js数据结构与算法学习笔记一/" itemprop="url">
-              
-                <span itemprop="name">js数据结构与算法学习笔记(一)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-25T00:00:00+08:00"
-              content="2018-02-25" >
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h1 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h1><p>函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。</p>
+<p>函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 <code>var sum=new Function(&quot;num1&quot;,&quot;num2&quot;,&quot;return num1+num2&quot;)</code>.</p>
+<h2 id="1-没有重载"><a href="#1-没有重载" class="headerlink" title="1.没有重载"></a>1.没有重载</h2><p>可以将函数名想象为指针来理解为什么没有重载。如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">30</span>+num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">40</span>+num;</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">20</span>)   <span class="comment">//60</span></span><br></pre></td></tr></table></figure>
+<p>以上代码输出60，说明第二次函数声明覆盖了第一次函数声明，这就说明了函数没有重载，以上代码等价于下面代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum=<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">30</span>+num;</span><br><span class="line">&#125;;</span><br><span class="line">sum=<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">40</span>+num;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><em>切记：函数名只是指向函数对象的指针</em></p>
+<h2 id="2-函数声明和函数表达式"><a href="#2-函数声明和函数表达式" class="headerlink" title="2.函数声明和函数表达式"></a>2.函数声明和函数表达式</h2><blockquote>
+<p>区别：解析器会首先读取函数声明，使任意代码都可以使用；而函数表达式则要等到执行到该代码行才会被解析。</p>
+</blockquote>
+<h2 id="3-作为值的函数"><a href="#3-作为值的函数" class="headerlink" title="3.作为值的函数"></a>3.作为值的函数</h2><blockquote>
+<p>因为函数名本身就是变量，所以函数也可以作为值来使用。意思是，1、函数可以作为另一个函数的参数 2、函数可以作为一个函数的返回值</p>
+</blockquote>
+<h2 id="4-函数内部属性"><a href="#4-函数内部属性" class="headerlink" title="4.函数内部属性"></a>4.函数内部属性</h2><blockquote>
+<p>在函数内部有两个特殊的对象：arguments和this。arguments是一个类数组对象，保存着函数所有参数。</p>
+</blockquote>
+<p>arguments对象只是与数组类似，它并不是Array的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayhi</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="string">','</span>+<span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码不包含命名的参数，但函数功能依旧。这说明了ECMAScript函数的一个重要特点：<strong>命名的参数只提供便利，但不是必须的。</strong>arguments的length属性表示参数的个数。另外arguments对象可以和命名参数一起使用。最后，没有传递值的命名参数将自动被赋予undefined的值，跟定义了变量未初始化一样。</p>
+<p>arguments还有个特殊的属性callee：该属性是一个指针，指向拥有这个arguments对象的函数。使用如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>(</span><br><span class="line">		<span class="keyword">return</span> num*factorial(num<span class="number">-1</span>);</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码将函数和函数名紧密地联系在了一起，如果将该函数名赋值给另外一个变量，再将此函数名指向另外一个函数，调用另外一个变量对应的函数时，则会受到该变量名的影响。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> num*<span class="built_in">arguments</span>.callee(num<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数内部对象this，this的值是函数执行的环境对象。（当在网页的全局作用域调用函数时this对象的值为window）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color=<span class="string">'red'</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">color</span>:<span class="string">'blue'</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line">sayColor();   <span class="comment">//red   this:window</span></span><br><span class="line">o.sayColor=sayColor;</span><br><span class="line">o.sayColor();    <span class="comment">//blue   this:o</span></span><br></pre></td></tr></table></figure>
+<p>还有一个函数对象的属性：caller。这个属性保存着调用当前函数的函数的引用，如果在全局作用域中调用当前函数，他的值为null。我的理解是，函数A在函数B中调用，函数A中的caller属性就指向函数B。</p>
+<h2 id="5-函数的属性和方法"><a href="#5-函数的属性和方法" class="headerlink" title="5.函数的属性和方法"></a>5.函数的属性和方法</h2><h3 id="每个函数都包含了两个属性：length和prototype。"><a href="#每个函数都包含了两个属性：length和prototype。" class="headerlink" title="每个函数都包含了两个属性：length和prototype。"></a>每个函数都包含了两个属性：length和prototype。</h3><p>length属性表示希望接受的命名参数的个数。而arguments.length表示有多少个参数传递给了函数。前者说的是命名参数的个数，后者并没有强调命名参数。</p>
+<p>1) 对于ECMAScript中的引用类型而言，prototype是保存它们所有实例方法的真正所在。2)在创建自定义引用类型以及实现以及实现继承prototype属性是及其重要的。3) prototype属性是不可枚举的，因此使用for-in无法发现。</p>
+<h2 id="每个函数都包含两个非继承而来的的方法：apply-和call"><a href="#每个函数都包含两个非继承而来的的方法：apply-和call" class="headerlink" title="每个函数都包含两个非继承而来的的方法：apply()和call()"></a>每个函数都包含两个非继承而来的的方法：apply()和call()</h2><p>两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。</p>
+<p>apply()第一个参数在其中运行函数的作用域；另一个是参数数组，可以是Array实例也可以是arguments对象。</p>
+<p>call()第一个参数是this值，其余参数都必须逐个列举出来。</p>
+<p>他俩的作用：扩充函数赖以运行的作用域。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color=<span class="string">'red'</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">color</span>:<span class="string">'blue'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayColor();       <span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="keyword">this</span>);    <span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="built_in">window</span>);    <span class="comment">//red</span></span><br><span class="line">sayColor.call(o)   <span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
+<p>sayColor.call(this)和sayColor.call(window)是两种显式的在全局作用域中调用函数的方式。sayColor.call(o)此时函数体内的this对象指向了o。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" <i class="fafa-tag"></i> js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/25/js数据结构与算法学习笔记一/" rel="next" title="js数据结构与算法学习笔记(一)">
+                <i class="fa fa-chevron-left"></i> js数据结构与算法学习笔记(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -375,6 +548,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -395,8 +582,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -482,6 +678,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Function类型"><span class="nav-number">1.</span> <span class="nav-text">Function类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-没有重载"><span class="nav-number">1.1.</span> <span class="nav-text">1.没有重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数声明和函数表达式"><span class="nav-number">1.2.</span> <span class="nav-text">2.函数声明和函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作为值的函数"><span class="nav-number">1.3.</span> <span class="nav-text">3.作为值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-函数内部属性"><span class="nav-number">1.4.</span> <span class="nav-text">4.函数内部属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-函数的属性和方法"><span class="nav-number">1.5.</span> <span class="nav-text">5.函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每个函数都包含了两个属性：length和prototype。"><span class="nav-number">1.5.1.</span> <span class="nav-text">每个函数都包含了两个属性：length和prototype。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每个函数都包含两个非继承而来的的方法：apply-和call"><span class="nav-number">1.6.</span> <span class="nav-text">每个函数都包含两个非继承而来的的方法：apply()和call()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -624,6 +836,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -641,6 +857,18 @@
       <script id="dsq-count-scr" src="https://chen.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/02/26/Function类型学习笔记/';
+          this.page.identifier = '2018/02/26/Function类型学习笔记/';
+          this.page.title = '引用类型之Function类型学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
