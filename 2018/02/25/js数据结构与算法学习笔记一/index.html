@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小宸兄的博客">
 <meta property="og:description" content="JavaScript数据结构与算法学习笔记(一) 前言：考完研啦，前端大半年没碰了，最近开始恶补一番😂。去年参加了几次实习生招聘，吃亏在数据结构和算法方面，最近在专门针对这方面进行学习。在这里记录下自己需要熟记的一些知识点以及弱项。首先从难的开始～  排序总结六种排序方式实现：冒泡排序、选择排序、插入排序、归并排序、快速排序和堆排序 1.冒泡排序原理：比较相邻的两个项，如果第一个比第二个大，则交">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T02:45:35.168Z">
+<meta property="og:updated_time" content="2018-02-27T13:37:42.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js数据结构与算法学习笔记(一)">
 <meta name="twitter:description" content="JavaScript数据结构与算法学习笔记(一) 前言：考完研啦，前端大半年没碰了，最近开始恶补一番😂。去年参加了几次实习生招聘，吃亏在数据结构和算法方面，最近在专门针对这方面进行学习。在这里记录下自己需要熟记的一些知识点以及弱项。首先从难的开始～  排序总结六种排序方式实现：冒泡排序、选择排序、插入排序、归并排序、快速排序和堆排序 1.冒泡排序原理：比较相邻的两个项，如果第一个比第二个大，则交">
@@ -112,7 +112,7 @@
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: {"per_page":3},
+      hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,283
+                  1,773
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -474,6 +474,16 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mergeSortRec=<span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> length=arr.length;</span><br><span class="line">	<span class="keyword">if</span>(arr.length==<span class="number">1</span>)&#123;    <span class="comment">//递归的停止条件，如果数组长度是1，则返回这个长度为1的数组。</span></span><br><span class="line">		<span class="keyword">return</span> arr;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> mid=<span class="built_in">Math</span>.floor(length/<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">var</span> left=arr.slice(<span class="number">0</span>,mid);</span><br><span class="line">	<span class="keyword">var</span> right=arr.slilce(mid,length);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> merge(mergeSortRec(left),mergeSortRec(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最后，定义一个mergeSort函数完成整个归并算法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mergeSort=<span class="function"><span class="keyword">function</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	arr=mergeSortRec(arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>归并排序的时间复杂度为O(nlogn)</p>
+<h3 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5.快速排序"></a>5.快速排序</h3><blockquote>
+<p>步骤：<br>1、从数组中选择中间一项作为主元<br>2、创建两个指针，左边一个指向数组的第一项，右边一个指向数组的最后一项。移动左指针直到找到一个比主元大的元素，接着，移动右指针直到找到一个比主元小的元素，然后交换它们，重复这个过程，直到左指针超过了右指针。这个过程将使得比主元小的值都排在了主元之前，而比主元大的值都排在了主元之后。这一步叫划分操作。<br>3、接着，算法对划分后的小数组（较主元小的值组成的子数组，以及较主元大的值组成的子数组）重复前两个步骤，直到数组完全排序。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	quick(arr,<span class="number">0</span>,arr.length<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>像归并排序一样，首先定义一个主函数来调用递归函数，传递待排数组，以及索引0及最末的位置。</p>
+<h4 id="5-1-划分操作的实现"><a href="#5-1-划分操作的实现" class="headerlink" title="5.1 划分操作的实现"></a>5.1 划分操作的实现</h4><p>第一件事情就是要选择主元（pivot）。我们选择中间项作为主元</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> partition=<span class="function"><span class="keyword">function</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> pivot=arr[<span class="built_in">Math</span>.floor((left+right)/<span class="number">2</span>)];</span><br><span class="line">	<span class="keyword">var</span> i=left;</span><br><span class="line">	<span class="keyword">var</span> j=right;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(i&lt;=j)&#123;</span><br><span class="line">		<span class="keyword">while</span>(arr[i]&lt;pivot)&#123;</span><br><span class="line">			i++</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(arr[j]&gt;pivot)&#123;</span><br><span class="line">			j--</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(i&lt;=j)&#123;</span><br><span class="line">			swap(arr,i,j);</span><br><span class="line">			i++;</span><br><span class="line">			j--</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当左指针指向的元素比主元大且右指针指向的元素比主元小，并且此时左指针索引没有右指针索引大。然后交换他俩，移动指针，并重复此过程。<br>下面实现递归函数quick</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> quick=<span class="function"><span class="keyword">function</span>(<span class="params">arr,left,right</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> index;</span><br><span class="line">	<span class="keyword">if</span>(arr.length&gt;<span class="number">1</span>)&#123;</span><br><span class="line">		index=partition(arr,left,right);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(left&lt;index<span class="number">-1</span>)&#123;</span><br><span class="line">			quick(arr,left,index<span class="number">-1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(index&lt;right)&#123;</span><br><span class="line">			quick(arr,index,right)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -617,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -694,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript数据结构与算法学习笔记-一"><span class="nav-number">1.</span> <span class="nav-text">JavaScript数据结构与算法学习笔记(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">1.1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-冒泡排序"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-选择排序"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-插入排序"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-归并排序"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.归并排序</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript数据结构与算法学习笔记-一"><span class="nav-number">1.</span> <span class="nav-text">JavaScript数据结构与算法学习笔记(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">1.1.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-冒泡排序"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-选择排序"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-插入排序"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-归并排序"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-快速排序"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-划分操作的实现"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">5.1 划分操作的实现</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
