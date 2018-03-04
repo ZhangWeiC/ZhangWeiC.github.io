@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Ajax和Comet的学习笔记 按着js高级程序设计的步骤进行笔记记录～～  ajax：Asynchronous JavaScript+XMLajax的核心技术：XMLHttpRequest对象。 1.XMLHttpRequest对象建立：var xhr=new XMLHttpRequest(); (不考虑兼容IE7之前的版本)。 1.1 XHR用法 要调用的第一个方法就是open(),接受3个参">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax和Comet学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/02/27/Ajax和Comet的学习笔记/index.html">
+<meta property="og:site_name" content="小宸兄的博客">
+<meta property="og:description" content="Ajax和Comet的学习笔记 按着js高级程序设计的步骤进行笔记记录～～  ajax：Asynchronous JavaScript+XMLajax的核心技术：XMLHttpRequest对象。 1.XMLHttpRequest对象建立：var xhr=new XMLHttpRequest(); (不考虑兼容IE7之前的版本)。 1.1 XHR用法 要调用的第一个方法就是open(),接受3个参">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-04T05:38:12.027Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax和Comet学习笔记">
+<meta name="twitter:description" content="Ajax和Comet的学习笔记 按着js高级程序设计的步骤进行笔记记录～～  ajax：Asynchronous JavaScript+XMLajax的核心技术：XMLHttpRequest对象。 1.XMLHttpRequest对象建立：var xhr=new XMLHttpRequest(); (不考虑兼容IE7之前的版本)。 1.1 XHR用法 要调用的第一个方法就是open(),接受3个参">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/27/Ajax和Comet的学习笔记/"/>
+
+
+
+
+
+  <title>Ajax和Comet学习笔记 | 小宸兄的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2038de8caca7f0321894a552d20548a5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小宸兄的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/27/Ajax和Comet的学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小宸兄的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ajax和Comet学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T00:00:00+08:00">
+                2018-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习心得/" itemprop="url" rel="index">
+                    <span itemprop="name">学习心得</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/27/Ajax和Comet的学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/27/Ajax和Comet的学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,165
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Ajax和Comet的学习笔记"><a href="#Ajax和Comet的学习笔记" class="headerlink" title="Ajax和Comet的学习笔记"></a>Ajax和Comet的学习笔记</h1><blockquote>
+<p>按着js高级程序设计的步骤进行笔记记录～～</p>
+</blockquote>
+<p>ajax：Asynchronous JavaScript+XML<br><br>ajax的核心技术：XMLHttpRequest对象。</p>
+<h2 id="1-XMLHttpRequest对象"><a href="#1-XMLHttpRequest对象" class="headerlink" title="1.XMLHttpRequest对象"></a>1.XMLHttpRequest对象</h2><p>建立：<code>var xhr=new XMLHttpRequest();</code> (不考虑兼容IE7之前的版本)。</p>
+<h3 id="1-1-XHR用法"><a href="#1-1-XHR用法" class="headerlink" title="1.1 XHR用法"></a>1.1 XHR用法</h3><ul>
+<li><p>要调用的第一个方法就是open(),接受3个参数：1、要发送请求的类型（“post”，“get”等）、请求的URL、是否异步发送请求的bool值</p>
+<p>  <code>xhr.open(&quot;get&quot;,&quot;example.php&quot;,false)</code></p>
+<p>  <em>说明：1.url相对于执行代码的当前页面<br><br>2.调用open方法并不会发送请求，而是启动一个请求已备发送。</em></p>
+</li>
+<li><p>要发送特定的请求，必须像这样调用send(),<code>xhr.send(null)</code>.<br><br>send()方法接受一个参数，即要作为请求主体发送的数据。如果不需要请求主体发送数据，则必须传入null。这次请求是同步的，js代码会等到服务器响应之后再继续执行。在收到响应后，响应的数据会自动填充XHR对象的属性,相关属性如下：</p>
+<ul>
+<li>responseText: 作为响应主体被返回的文本。</li>
+<li>responseXML: 如果响应的内容类型是“text/xml”或者“application/xml”，这个属性将保存着包含响应数据的XML DOM文档。</li>
+<li>status：响应的HTTP状态。</li>
+<li><p>statusText：HTTP状态的说明</p>
+<p>过程：第一步：检查status的状态，以确定响应已经成功返回。一般来说，HTTP的状态码为200时，可以作为成功的标志。这时候，responseText属性的内容已经就绪，在内容正确的情况下responseXML也能访问了。状态码为304时表示请求的资源并没有被修改，可以直接使用浏览器中缓存的版本。这时候的响应也是有效的。可以像下面这样肩检查两种状态码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( (xhr.status&gt;=<span class="number">200</span> &amp;&amp; xhr.status&lt;<span class="number">300</span>)||xhr.status==<span class="number">304</span> )&#123;</span><br><span class="line">	alert(xhr.responseText);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	alert(<span class="string">"request is unsucessful"</span> +xhr.status);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>通过检测status来决定下一步操作。另外，无论内容类型是什么，响应主体都会保存到responseText中；而对于非XML数据来说，responseXML属性将设置为null。
+
+上述是发送同步请求，多数情况下，我们还是要发送异步请求，才能让JavaScript继续执行而不必响应等待。通过检测XHR对象的readyState属性，该属性表示请求/响应过程的当前活动阶段。这个属性可取：
+
+* 0:未初始化。尚未调用open()方法。
+* 1:启动，已经调用open()方法，但未调用send()方法。
+* 2:发送，已经调用send()方法，但未接收到响应。
+* 3:接收，已经接收到部分响应数据。
+* 4:完成，已经接收到全部数据，而且可以在客户端使用了
+
+只要readyState属性的值由一个值变为另一个值，都会触发一次readystatechange事件。可以利用这个事件来检测每次状态变化后readyState值。一般只对readyState的值为4的阶段感兴趣，因为这时的所有元素都已经就绪。不过，**必须在调用open()之前指定onreadystatechange事件处理程序才能确保跨浏览器兼容性。**
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">		<span class="comment">//code....</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.open(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="literal">true</span>);</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="1-2-HTTP头部信息"><a href="#1-2-HTTP头部信息" class="headerlink" title="1.2 HTTP头部信息"></a>1.2 HTTP头部信息</h3><p>每个HTTP请求和响应都会带有相应的头部信息。XHR对象也提供了操作这两种头部（请求头部和响应头部）信息的方法。</p>
+<ul>
+<li><p>请求头部：默认情况下，在发送XHR请求的同时，还会发送下列头部信息：</p>
+<ul>
+<li>Accept：浏览器能够处理的内容类型。</li>
+<li>Accept-Charset：浏览器能够显示的字符集。</li>
+<li>Accept-Encoding：浏览器能够处理的压缩编码。</li>
+<li>Accept-Language：浏览器当前设置的语言。</li>
+<li>Connection: 浏览器与服务器之间连接的类型。</li>
+<li>Cookie：当前页面设置的任何cookie。</li>
+<li>Host：发出请求的页面所在的域。</li>
+<li>Refer：发出请求的页面的url。</li>
+<li>User-Agent：浏览器的用户代理字符串。</li>
+</ul>
+</li>
+</ul>
+<p>使用setRequestHeader()方法可以设置自定义的请求头部信息。接收两个参数：1、头部字段的名称。 2、头部字段的值。<br></p>
+<p>必须在调用open方法之后，send方法之前调用setRequestHeader()。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">		<span class="comment">//....</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.open(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="literal">true</span>);</span><br><span class="line">xhr.setRequestHeader(<span class="string">"MyHeader"</span>,<span class="string">"MyValue"</span>);</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>响应头部：<br></p>
+<ol>
+<li>调用XHR对象的getResponseHeader()方法并传入头部字段名称，可以取得相应的响应头部信息。</li>
+<li><p>调用XHR对象的getAllResponseHeaders()方法则可以取得一个包含所有头部信息的长字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myHeader=xhr.getResponseHeader(<span class="string">'MyHeader'</span>);</span><br><span class="line"><span class="keyword">var</span> allHeaders=xhr.getAllResponseHeader();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>   getAllResponseHeaders()方法通常会返回如下所示的多行文本内容：</p>
+   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>: ..</span><br><span class="line">Server: ..</span><br><span class="line">Vary: ..</span><br><span class="line">X-Power-By: ..</span><br><span class="line">Connection: ..</span><br><span class="line">Content-type: ..</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-GET请求"><a href="#1-3-GET请求" class="headerlink" title="1.3 GET请求"></a>1.3 GET请求</h3><p>GET是最常见的请求类型，最常用于向服务器查询某些信息。可以将查询字符串参数追加到URL的末尾，以便将信息发送给服务器。对XHR而言，位于传入open()方法的URL末尾的查询字符串必须经过正确的编码才行。<br><br><br>使用get请求经常会发生一个错误，就是查询字符串格式有问题。查询字符串的每个参数的名称和值都必须使用encodeURIComponent()进行编码。</p>
+<blockquote>
+<p>先解释下encodeURIComponent(URIstring)的作用以及用法。<br></p>
+<pre><code>1. 作用：函数可把字符串作为 URI 组件进行编码。&lt;br&gt;
+2. 说明：该方法不会对ASCII字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * &apos; ( ) 。
+</code></pre><p>其他字符（比如 ：;/?:@&amp;=+$,# 这些用于分隔 URI 组件的标点符号），都是由一个或多个十六进制的转义序列替换的。</p>
+</blockquote>
+<p>下面这个函数可以辅助向现有URL的末尾添加查询字符串参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addURLParam</span>(<span class="params">url,name,value</span>)</span>&#123;</span><br><span class="line">	url+= (url.indexOf(<span class="string">"?"</span>)==<span class="number">-1</span> ? <span class="string">"?"</span> : <span class="string">"&amp;"</span>);</span><br><span class="line">	url+= <span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>+<span class="built_in">encodeURIComponent</span>(value);</span><br><span class="line">	<span class="keyword">return</span> url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-POST请求"><a href="#1-4-POST请求" class="headerlink" title="1.4 POST请求"></a>1.4 POST请求</h3><p>post通常用于向服务器发送应该被保存的数据。post请求应该把数据作为请求的主体来提交，而get请求传统上不是这样。post请求的主体可以包含非常多的数据，而且格式不限。用法: </p>
+<ul>
+<li>第一步： <code>xhr.open(&quot;post&quot;,&quot;example.php&quot;,true)</code></li>
+<li>第二步： 向send()方法传入某些数据。</li>
+<li>默认情况下，服务器对POST请求和提交Web表单请求并不会一视同仁。因此服务器端必须有程序来读取发送过来的原始数据，并从里面解析出有用的部分。可以利用XHR来模仿表单提交：首先将Content-Type头部信息设置为application/x-www-form-urlencoded，也就是表单提交时的内容类型。其次是以适当的格式创建一个字符串。</li>
+</ul>
+<h2 id="2-XMLHttpRequest2级"><a href="#2-XMLHttpRequest2级" class="headerlink" title="2.XMLHttpRequest2级"></a>2.XMLHttpRequest2级</h2><h3 id="2-1-FormData"><a href="#2-1-FormData" class="headerlink" title="2.1 FormData"></a>2.1 FormData</h3><p>现代Web应用中频繁使用的一项功能就是表单数据的序列化，XMLHttpRequest2定义了FormData类型。作用：为序列化表单以及创建与表单格式相同的数据提供了便利。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data=<span class="keyword">new</span> FormData();</span><br><span class="line">data.append(<span class="string">'name'</span>,<span class="string">'Nicholas'</span>);</span><br></pre></td></tr></table></figure>
+<p>两个参数分别对应表单字段的名字和字段包含的值。向FormData构造函数传入表单元素，也可以用表单元素的数据预先向其中填入键值对：<code>var data=new FormData(document.forms[0]);</code>。创建FormData可以直接把它传入send()中。<code>xhr.send(new FormData(form))</code>.</p>
+<h3 id="2-2-超时设定"><a href="#2-2-超时设定" class="headerlink" title="2.2 超时设定"></a>2.2 超时设定</h3><p>XHR对象添加了一个timeout属性，表示请求在等待响应多少毫秒之后就终止。给timeout设置一个数值后，如果在规定的时间内浏览器还没有接收到响应，那么就会触发timeout事件，进而会调用ontimeout事件处理程序。</p>
+<h3 id="2-3-overridMimeType-方法"><a href="#2-3-overridMimeType-方法" class="headerlink" title="2.3 overridMimeType() 方法"></a>2.3 overridMimeType() 方法</h3><p>用于重写XHR响应的MIME类型</p>
+<h2 id="3-进度事件"><a href="#3-进度事件" class="headerlink" title="3.进度事件"></a>3.进度事件</h2><p>定义了与客户端服务器通信有关的事件。有以下6个进度事件。</p>
+<ul>
+<li>loadstart：在接收到响应数据的第一个字节时触发。</li>
+<li>progress：在接收响应期间持续不断地出发。</li>
+<li>error：在请求发生错误时触发。</li>
+<li>abort：调用abort()方法而终止连接时触发。</li>
+<li>load：在接收完整的响应的触发。 可以替代readystatechange事件。</li>
+<li>loadend：在通信完成或者在触发error、abort、load事件后触发。</li>
+</ul>
+<p>过程：先触发loadstart,然后是一个或多个progress事件，然后是error、abort、load其中一个被触发，最后触发loadend事件。</p>
+<h2 id="4-跨域源资源"><a href="#4-跨域源资源" class="headerlink" title="4.跨域源资源"></a>4.跨域源资源</h2><p>通过XHR实现Ajax通信的一个主要限制就是跨域安全策略。在默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。<br><br>CORS定义了在必须访问跨域资源时，浏览器和服务器应该如何沟通。CORS背后的基本思想，就是使用自定义的http头部让浏览器与服务器进行通信，从而决定请求或响应是否成功或失败。<code>Origin:http://www.nczonline.net</code></p>
+<h3 id="IE对CORS的实现"><a href="#IE对CORS的实现" class="headerlink" title="IE对CORS的实现"></a>IE对CORS的实现</h3><ul>
+<li>IE8引入XDR（XDomainRequest）类型。这个对象与XHR类似，但能实现安全可靠的跨域通信。XDR和XHR不同之处：<ul>
+<li>cookie不会随请求发送，也不会随响应返回</li>
+<li>不能访问响应头部信息</li>
+<li>只支持GET和POST请求</li>
+<li>只能设置请求头部信息中的Content-type</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他浏览器对CORS的实现"><a href="#其他浏览器对CORS的实现" class="headerlink" title="其他浏览器对CORS的实现"></a>其他浏览器对CORS的实现</h3><p>都通过XMLHttpRequest对象实现了对CORS的原生支持。在尝试打开不同来源的资源，无需额外编写代码就可以触发这个行为。方法：使用标准的XHR对象并在open()方法中传入URL即可。例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>((xhr.status&gt;=<span class="number">200</span> &amp;&amp; xhr.status&lt;<span class="number">300</span>) || xhr.status==<span class="number">304</span>)&#123;</span><br><span class="line">			alert(xhr.responseText);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			alert(<span class="string">"Request was unsucessful"</span>+xhr.status);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhr.open(<span class="string">"get"</span>,<span class="string">"http://www.somewhere-else.com/page/"</span>,<span class="literal">true</span>);</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<p>与IE的XDR对象不同，通过跨域XHR对象可以访问<strong>status和statusText</strong>属性，而且支持<strong>同步请求</strong>。跨域对象也有一些限制，如下：</p>
+<ul>
+<li>不能使用setRequestHeader()设置自定义头部。</li>
+<li>不能接受和发送cookie</li>
+<li>调用getAllResponseHeader()方法总会返回空字符串。</li>
+</ul>
+<h3 id="Preflighted-Reqeusts"><a href="#Preflighted-Reqeusts" class="headerlink" title="Preflighted Reqeusts"></a>Preflighted Reqeusts</h3><p>CORS通过一个叫做Preflighted Requests的透明服务器验证机制支持开发人员使用自定义的头部、GET或POST之外的方法，以及不同类型的主体内容。在使用高级选项来发送请求时，就会向服务器发送一个Preflight请求。这种请求使用OPTIONS方法，发送下列头部</p>
+<h3 id="跨浏览器的CORS"><a href="#跨浏览器的CORS" class="headerlink" title="跨浏览器的CORS"></a>跨浏览器的CORS</h3><p>所有浏览器都支持简单的请求，因此有必要实现一个跨浏览器的方案。检测XHR是否支持CORS的最简单的方式，就是检查withCredentials属性。再结合检测XDomainRequest对象是否存在，就可以检测所有浏览器了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCORSRequest</span>(<span class="params">method,url</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">"withCredentials"</span> <span class="keyword">in</span> xhr)&#123;</span><br><span class="line">		xhr.open(method,url,<span class="literal">true</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> XDomainRequest != <span class="string">"undefined"</span>)&#123;</span><br><span class="line">		xhr = <span class="keyword">new</span> XDomainRequest();</span><br><span class="line">		xhr.open(method,url);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		xhr = <span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> xhr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> request=createCORSRequest(<span class="string">"get"</span>,<span class="string">"http://www.somewhere-else.com/page/"</span>);</span><br><span class="line"><span class="keyword">if</span>(request)&#123;</span><br><span class="line">	request.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment">//对request.responseText进行处理</span></span><br><span class="line">	&#125;</span><br><span class="line">	request.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-其他跨域技术"><a href="#5-其他跨域技术" class="headerlink" title="5.其他跨域技术"></a>5.其他跨域技术</h2><h3 id="图像Ping"><a href="#图像Ping" class="headerlink" title="图像Ping"></a>图像Ping</h3><p>使用<img>标签，一个网页可以从任何网页中加载图像，不用担心跨不跨域。可以动态的创建图像，使用它们的onload和onerror事件处理程序来确定是否接收到了响应。<br><br>图像Ping：是与服务器进行简单、单项的跨域通信的一种方式。通过图像Ping，浏览器得不到任何具体数据的数据，但通过监听load和error事件，它能知道响应是什么时候接收的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image();</span><br><span class="line">img.onload=img.onerror=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">"Done!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">img.src=<span class="string">"http://www.example.com/test?name=Tom"</span>;</span><br></pre></td></tr></table></figure>
+<p>图像Ping最常用于跟踪用户点击页面或动态广告曝光次数。</p>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p>JSONP：JSON with padding(填充式JSON或参数式JSON)，是应用JSON的一种新方式，JSONP和JSON差不多，只不过是包含在函数调用的JSON，<code>callback({&quot;name&quot;:&quot;Tom&quot;});</code><br><br>JSONP由两部分组成：<strong>回调函数和数据</strong>。回调函数是当响应到来时应该在页面调用的函数。回调函数的名字一般在请求中指定。而数据就是传入回调函数的JSON数据。典型的JSONP请求<code>http://freegeoip.net/json/?callback=handleResponse</code>。JSONP是通过动态创建script元素来使用的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleResponse</span>(<span class="params">response</span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">"Your Ip is"</span>+response.ip+<span class="string">", which is in"</span>+response.city);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">script.src=<span class="string">"http://freegeoip.net/json/?callback=handleResponse"</span>;</span><br><span class="line"><span class="built_in">document</span>.body.insertBefore(script,<span class="built_in">document</span>.body.firstChild);</span><br></pre></td></tr></table></figure>
+<p>优点：1.双向通信。2、可以访问响应文本。3、简单易用<br><br>缺点：1.从其他域加载执行代码，不安全。2、确定请求是否失败并不容易。</p>
+<h3 id="Comet"><a href="#Comet" class="headerlink" title="Comet"></a>Comet</h3><p>更高级的Ajax技术（也叫服务器推送）。Ajax是一种页面向服务器请求数据的技术，而Comet则是一种服务器向页面推送数据的技术。能够使信息实时地被推送到页面上。<br><br>实现Comet有两种方式：长轮询和流。</p>
+<ul>
+<li>短轮询：即浏览器定时向服务器发送请求，看有没有数据更新<br>长轮询：页面发起一个到服务器的请求，然后服务器一直保持连续打开，直到有数据可以传送。发送完数据后，浏览器关闭连接，随即又发起一个到服务器的新请求。</li>
+<li><p>HTTP流。他在页面的整体生命周期内只使用一个HTTP连接。就是浏览器向服务器发送一个请求，而服务器保持连接打开，然后周期性的向浏览器发送数据。可以通过监听readystatechange事件以及readyState的值是否为3，就可以利用XHR对象实现HTTP流。随着不断从服务器接收数据，readyState周期性的变为3，当readyState变为3时，responseText属性中就会保存接收到的所有数据。此时，需要比较此前接收到的数据，决定从什么位置开始取得最新的数据。实现如下</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStreamingClient</span>(<span class="params">url,progress,finished</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest(),</span><br><span class="line">		receive=<span class="number">0</span>;</span><br><span class="line">	xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> result;</span><br><span class="line">		<span class="keyword">if</span>(xhr.readyState==<span class="number">3</span>)&#123;</span><br><span class="line">			result=xhr.reponseText.substring(received);</span><br><span class="line">			received+=result.length;</span><br><span class="line">			</span><br><span class="line">			progress(result);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</span><br><span class="line">			finished(xhr.responseText);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	xhr.open(<span class="string">"get"</span>,url,<span class="literal">true</span>);</span><br><span class="line">	xhr.send(<span class="literal">null</span>);</span><br><span class="line">	<span class="keyword">return</span> xhr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Web-Sockets"><a href="#Web-Sockets" class="headerlink" title="Web Sockets"></a>Web Sockets</h3><p>Web Sockets目标：在一个单独的持久连接上提供全双工、双向通信。<br><br>过程：在JavaScript创建了Web Sockets之后，会有一个HTTP请求发送到浏览器以发起连接。在取得服务器响应之后，建立的连接会使用HTTP升级从HTTP协议交换为Web Socket协议。<br><br>URL的模式也略有不同。未加密的连接是ws://，加密的连接是wss://。不是http://和https://<br><br><br>好处：能够在客户端和服务器之间发送非常少的数据，而不必担心HTTP那样子节级的开销。非常适合移动应用。</p>
+<h4 id="1-Web-Sockets-API"><a href="#1-Web-Sockets-API" class="headerlink" title="1.Web Sockets API"></a>1.Web Sockets API</h4><p>要创建web sockets，先实例一个WebSocket对象并传入要连接的URL：<br><code>var socket=new WebSocket(&quot;ws://www.example.com/server.php&quot;)</code>。必须给WebSocket构造函数传入绝对的URL。可以通过它打开到任何站点的连接。</p>
+<p>实例化WebSocket对象后，浏览器就会马上尝试创建连接。与XHR相似，WebSocket也有一个表示当前状态的readyState属性。这个属性的值和XHR并不相同</p>
+<ul>
+<li>WebSocket.OPENING(0): 正在建立连接</li>
+<li>WebSocket.OPEN(1): 已经建立连接</li>
+<li>WebSocket.CLOSING(2): 正在关闭连接</li>
+<li>WebSocket.CLOSE(3): 已经关闭连接</li>
+</ul>
+<p>WebSocket没有readystatechange事件；不过他有其他事件，对应不同状态，readyState的值永远都从0开始。<br><br>要关闭Web Socket连接，可以在任何调用close方法().<code>socket.close()</code></p>
+<h4 id="2-发送和接收数据"><a href="#2-发送和接收数据" class="headerlink" title="2.发送和接收数据"></a>2.发送和接收数据</h4><p>使用send()方法并传入任意字符串，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> socket=<span class="keyword">new</span> WebSocket(<span class="string">"ws://www.example.com/server.php"</span>);</span><br><span class="line">socket.send(<span class="string">"hello world"</span>);</span><br></pre></td></tr></table></figure>
+<p>WebSockets只能通过连接发送纯文本数据，所以对于复杂的数据结构，在发送之前，必须进行序列化。</p>
+<p>当服务器向客户端发来消息时，WebSocket对象会触发message事件。这个message事件与其他传递消息的协议类似，也就是把返回的数据保存在event.data中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">socket.onmessage=<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> data = event.data;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//处理数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-其他事件"><a href="#3-其他事件" class="headerlink" title="3.其他事件"></a>3.其他事件</h4><ul>
+<li>open:在成功建立时触发</li>
+<li>error：发生错误时触发</li>
+<li>close：关闭连接时触发</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" <i class="fafa-tag"></i> js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/27/变量、作用域和内存问题学习笔记/" rel="next" title="变量、作用域和内存问题学习笔记">
+                <i class="fa fa-chevron-left"></i> 变量、作用域和内存问题学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/timg.jpeg"
+                alt="Chen" />
+            
+              <p class="site-author-name" itemprop="name">Chen</p>
+              <p class="site-description motion-element" itemprop="description">永远不知好歹 永远热泪盈眶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ZhangWeiC" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/zwchaha" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:scty8888@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax和Comet的学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Ajax和Comet的学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-XMLHttpRequest对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.XMLHttpRequest对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-XHR用法"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 XHR用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-HTTP头部信息"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 HTTP头部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-GET请求"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 GET请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-POST请求"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 POST请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-XMLHttpRequest2级"><span class="nav-number">1.2.</span> <span class="nav-text">2.XMLHttpRequest2级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-FormData"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 FormData</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-超时设定"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 超时设定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-overridMimeType-方法"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 overridMimeType() 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进度事件"><span class="nav-number">1.3.</span> <span class="nav-text">3.进度事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-跨域源资源"><span class="nav-number">1.4.</span> <span class="nav-text">4.跨域源资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IE对CORS的实现"><span class="nav-number">1.4.1.</span> <span class="nav-text">IE对CORS的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他浏览器对CORS的实现"><span class="nav-number">1.4.2.</span> <span class="nav-text">其他浏览器对CORS的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Preflighted-Reqeusts"><span class="nav-number">1.4.3.</span> <span class="nav-text">Preflighted Reqeusts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨浏览器的CORS"><span class="nav-number">1.4.4.</span> <span class="nav-text">跨浏览器的CORS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-其他跨域技术"><span class="nav-number">1.5.</span> <span class="nav-text">5.其他跨域技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像Ping"><span class="nav-number">1.5.1.</span> <span class="nav-text">图像Ping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">1.5.2.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comet"><span class="nav-number">1.5.3.</span> <span class="nav-text">Comet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-Sockets"><span class="nav-number">1.5.4.</span> <span class="nav-text">Web Sockets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Web-Sockets-API"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">1.Web Sockets API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-发送和接收数据"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">2.发送和接收数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-其他事件"><span class="nav-number">1.5.4.3.</span> <span class="nav-text">3.其他事件</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://chen.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/02/27/Ajax和Comet的学习笔记/';
+          this.page.identifier = '2018/02/27/Ajax和Comet的学习笔记/';
+          this.page.title = 'Ajax和Comet学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
