@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="DOM扩展 之前">
+<meta name="description" content="DOM扩展 之前都是学习的DOM，最近准备学习下DOM扩展和DOM2、DOM3  DOM扩展目的：为了实现更多的功能。DOM主要扩展的两方面：Selectors API和HTML5。 1.选择符API最常用的的就是根据CSS选择符选择与某个模式匹配的DOM元素。jQuery的核心就是通过CSS选择符查询DOM文档取得元素引用。Selectors API的核心是两个方法：querySelector(">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM扩展">
 <meta property="og:url" content="http://yoursite.com/2018/03/19/DOM扩展/index.html">
 <meta property="og:site_name" content="小宸兄的博客">
-<meta property="og:description" content="DOM扩展 之前">
+<meta property="og:description" content="DOM扩展 之前都是学习的DOM，最近准备学习下DOM扩展和DOM2、DOM3  DOM扩展目的：为了实现更多的功能。DOM主要扩展的两方面：Selectors API和HTML5。 1.选择符API最常用的的就是根据CSS选择符选择与某个模式匹配的DOM元素。jQuery的核心就是通过CSS选择符查询DOM文档取得元素引用。Selectors API的核心是两个方法：querySelector(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-19T05:54:16.988Z">
+<meta property="og:updated_time" content="2018-03-21T10:51:36.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM扩展">
-<meta name="twitter:description" content="DOM扩展 之前">
+<meta name="twitter:description" content="DOM扩展 之前都是学习的DOM，最近准备学习下DOM扩展和DOM2、DOM3  DOM扩展目的：为了实现更多的功能。DOM主要扩展的两方面：Selectors API和HTML5。 1.选择符API最常用的的就是根据CSS选择符选择与某个模式匹配的DOM元素。jQuery的核心就是通过CSS选择符查询DOM文档取得元素引用。Selectors API的核心是两个方法：querySelector(">
 
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5
+                  957
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -439,8 +439,43 @@
 
       
         <h1 id="DOM扩展"><a href="#DOM扩展" class="headerlink" title="DOM扩展"></a>DOM扩展</h1><blockquote>
-<p>之前</p>
+<p>之前都是学习的DOM，最近准备学习下DOM扩展和DOM2、DOM3</p>
 </blockquote>
+<p>DOM扩展目的：为了实现更多的功能。<br><br>DOM主要扩展的两方面：Selectors API和HTML5。</p>
+<h2 id="1-选择符API"><a href="#1-选择符API" class="headerlink" title="1.选择符API"></a>1.选择符API</h2><p>最常用的的就是根据CSS选择符选择与某个模式匹配的DOM元素。jQuery的核心就是通过CSS选择符查询DOM文档取得元素引用。<br><br>Selectors API的核心是两个方法：querySelector()和querySelectorAll()。</p>
+<h3 id="1-1-querySelector-方法"><a href="#1-1-querySelector-方法" class="headerlink" title="1.1 querySelector()方法"></a>1.1 querySelector()方法</h3><p>querySelector()接收一个CSS选择符，返回与该模式匹配的<strong>第一个元素</strong>，如果没有找到匹配的元素，返回null。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得body元素</span></span><br><span class="line"><span class="keyword">var</span> body=<span class="built_in">document</span>.querySelector(<span class="string">"body"</span>);</span><br><span class="line"><span class="comment">//取得ID为myDiv的元素</span></span><br><span class="line"><span class="keyword">var</span> myDiv=<span class="built_in">document</span>.querySelector(<span class="string">"#myDiv"</span>);</span><br><span class="line"><span class="comment">//取得类为selected的第一个元素</span></span><br><span class="line"><span class="keyword">var</span> selected=<span class="built_in">document</span>.querySelector(<span class="string">".selected"</span>);</span><br></pre></td></tr></table></figure>
+<p>通过Document类型调用querySelector()方法时，会在文档元素范围内查找匹配的元素。而通过Element类型调用quertSelector()方法时，只会在该元素后代元素的范围内查找匹配的元素。</p>
+<h3 id="1-2-querySelectorAll"><a href="#1-2-querySelectorAll" class="headerlink" title="1.2 querySelectorAll()"></a>1.2 querySelectorAll()</h3><p>接收的参数和querySelector()一样，都是一个css选择符，但返回的是所有匹配元素而不仅仅是一个元素。这个方法返回一个NodeList的实例。</p>
+<h3 id="1-3-matchesSelector-方法"><a href="#1-3-matchesSelector-方法" class="headerlink" title="1.3 matchesSelector()方法"></a>1.3 matchesSelector()方法</h3><p>这个方法接收一个参数，即css选择符，如果调用元素与该选择符匹配，返回true；否则，返回false。</p>
+<h2 id="2-元素遍历"><a href="#2-元素遍历" class="headerlink" title="2.元素遍历"></a>2.元素遍历</h2><p>对于元素间的空格，IE9及之前的版本不会返回文本节点，而其他所有浏览器都会返回文本节点。为了保持一致。定义以下新属性。</p>
+<ul>
+<li>childElementCount：返回子元素的个数（不包含文本节点和注释）</li>
+<li>firstElementChild: 返回第一个元素；firstChild元素版。</li>
+<li>lastElementChild: 指向最后一个元素；lastChild元素版。</li>
+<li>previousElementSibling: 指向前一个同辈元素。previousSibling的元素版。</li>
+<li>nextElementSibling：指向后一个同辈元素。nextSibling的元素版。</li>
+</ul>
+<p>遍历某元素的子元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i,</span><br><span class="line">	len,</span><br><span class="line">	child=element.firstElementChild;</span><br><span class="line"><span class="keyword">while</span>( child != element.lastElementChild )&#123;</span><br><span class="line">	processChild(child);</span><br><span class="line">	child=child.nextElementSibling;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-HTML5"><a href="#3-HTML5" class="headerlink" title="3.HTML5"></a>3.HTML5</h2><p>HTML5规范围绕如何使用新增标记定义了大量的JavaScript API</p>
+<h3 id="3-1-与类相关的扩充"><a href="#3-1-与类相关的扩充" class="headerlink" title="3.1 与类相关的扩充"></a>3.1 与类相关的扩充</h3><ul>
+<li>getElementsByClassName()方法<br>接收一个参数，即一个包含一个或多个类名的字符串。返回带有指定类的所有元素的NodeList。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得所有类中包含“username”和“current”的元素，类名的先后顺序无所谓</span></span><br><span class="line"><span class="keyword">var</span> allCurrentUsernames=<span class="built_in">document</span>.getElementsByClassName(<span class="string">"username current"</span>);</span><br></pre></td></tr></table></figure>
+<p>调用这个方法时，只有位于调用子树中的元素才会返回。在document对象上调用getElementsByClassName()始终会返回与类名匹配的<strong>所有</strong>元素，在元素上调用该方法就只会返回后代元素中匹配的元素。</p>
+<ul>
+<li>classList属性<br>classList属性有一个表示自己包含多少元素的length属性，而取得每个元素可以使用item()或者方括号语法。此外这个属性还定义了如下方法。<ul>
+<li>add(value): 将给定的字符串值添加到列表中。如果存在，则不添加了。</li>
+<li>contains(value): 表示列表中是否存在给定的值。如果存在则返回true，否则则返回false。</li>
+<li>remove(value): 从列表中删除给定的字符串。</li>
+<li>toggle(value): 如果存在给定值，则删除它，如果不存在给定值，则添加它。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">div.classList.remove(<span class="string">"disabled"</span>);</span><br><span class="line">div.classList.add(<span class="string">"current"</span>);</span><br><span class="line">div.classList.toggle(<span class="string">"ueser"</span>);</span><br><span class="line"><span class="keyword">if</span>(div.classList.contains(<span class="string">"bd"</span>))&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;classList.length;i++)&#123;</span><br><span class="line">	doSomething(div.classList[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-焦点管理"><a href="#3-2-焦点管理" class="headerlink" title="3.2 焦点管理"></a>3.2 焦点管理</h3><p>HTML5也添加了辅助管理DOM焦点的功能。首先就是document.activeElement属性，作用：<strong>始终引用DOM中当前获得了焦点的元素</strong>。元素获得焦点的方式有<strong>页面加载、用户输入、在代码中调用focus()方法。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> button=<span class="built_in">document</span>.getElementById(<span class="string">'myButton'</span>);</span><br><span class="line">button.focus();</span><br><span class="line">alert(<span class="built_in">document</span>.activeElement==button); <span class="comment">//true;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -657,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展"><span class="nav-number">1.</span> <span class="nav-text">DOM扩展</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM扩展"><span class="nav-number">1.</span> <span class="nav-text">DOM扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-选择符API"><span class="nav-number">1.1.</span> <span class="nav-text">1.选择符API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-querySelector-方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 querySelector()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-querySelectorAll"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 querySelectorAll()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-matchesSelector-方法"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 matchesSelector()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-元素遍历"><span class="nav-number">1.2.</span> <span class="nav-text">2.元素遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-HTML5"><span class="nav-number">1.3.</span> <span class="nav-text">3.HTML5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-与类相关的扩充"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 与类相关的扩充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-焦点管理"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 焦点管理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
