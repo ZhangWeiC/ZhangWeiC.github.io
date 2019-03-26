@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ES6," />
+  <meta name="keywords" content="面试," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="let和const命令1.let命令1.1 基本用法let用于申明变量，其用法类似于var。但是所有申明的变量只在let命令所在的代码块内有效。for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域。 1234567for(let i=0;i&amp;lt;3;i++)&amp;#123;	let i=0;	console.log(i);&amp;#125;//abc//abc/">
-<meta name="keywords" content="ES6">
+<meta name="description" content="学习 BFC (Block Formatting Context)什么是BFCBFC全称是Block Formatting Context，即块格式化上下文。是关于CSS渲染定位的一个概念。 视觉格式化模型是用来处理文档并将它显示在视觉媒体上的机制。 视觉格式化模型定义了盒（Box）的生成，盒主要包括了块盒、行内盒、匿名盒（没有名字不能被选择器选中的盒）以及一些实验性的盒（未来可能添加到规范中）。">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6--let和const">
-<meta property="og:url" content="http://yoursite.com/2018/04/21/ES6--let和const命令/index.html">
+<meta property="og:title" content="准备面试--BFC">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/学习 BFC (Block Formatting Context)/index.html">
 <meta property="og:site_name" content="小宸兄的博客">
-<meta property="og:description" content="let和const命令1.let命令1.1 基本用法let用于申明变量，其用法类似于var。但是所有申明的变量只在let命令所在的代码块内有效。for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域。 1234567for(let i=0;i&amp;lt;3;i++)&amp;#123;	let i=0;	console.log(i);&amp;#125;//abc//abc/">
+<meta property="og:description" content="学习 BFC (Block Formatting Context)什么是BFCBFC全称是Block Formatting Context，即块格式化上下文。是关于CSS渲染定位的一个概念。 视觉格式化模型是用来处理文档并将它显示在视觉媒体上的机制。 视觉格式化模型定义了盒（Box）的生成，盒主要包括了块盒、行内盒、匿名盒（没有名字不能被选择器选中的盒）以及一些实验性的盒（未来可能添加到规范中）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-23T03:56:34.360Z">
+<meta property="og:updated_time" content="2019-03-26T12:51:42.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6--let和const">
-<meta name="twitter:description" content="let和const命令1.let命令1.1 基本用法let用于申明变量，其用法类似于var。但是所有申明的变量只在let命令所在的代码块内有效。for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域。 1234567for(let i=0;i&amp;lt;3;i++)&amp;#123;	let i=0;	console.log(i);&amp;#125;//abc//abc/">
+<meta name="twitter:title" content="准备面试--BFC">
+<meta name="twitter:description" content="学习 BFC (Block Formatting Context)什么是BFCBFC全称是Block Formatting Context，即块格式化上下文。是关于CSS渲染定位的一个概念。 视觉格式化模型是用来处理文档并将它显示在视觉媒体上的机制。 视觉格式化模型定义了盒（Box）的生成，盒主要包括了块盒、行内盒、匿名盒（没有名字不能被选择器选中的盒）以及一些实验性的盒（未来可能添加到规范中）。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/21/ES6--let和const命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/学习 BFC (Block Formatting Context)/"/>
 
 
 
 
 
-  <title>ES6--let和const | 小宸兄的博客</title>
+  <title>准备面试--BFC | 小宸兄的博客</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/ES6--let和const命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/学习 BFC (Block Formatting Context)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6--let和const</h1>
+          <h1 class="post-title" itemprop="name headline">准备面试--BFC</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-21T00:00:00+08:00">
-                2018-04-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T00:00:00+08:00">
+                2019-03-26
               </time>
             
 
@@ -359,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习心得/" itemprop="url" rel="index">
-                    <span itemprop="name">学习心得</span>
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
                   </a>
                 </span>
 
@@ -377,9 +377,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/21/ES6--let和const命令/#comments" itemprop="discussionUrl">
+                <a href="/2019/03/26/学习 BFC (Block Formatting Context)/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/21/ES6--let和const命令/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/03/26/学习 BFC (Block Formatting Context)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,288
+                  1,690
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -438,34 +438,104 @@
       
 
       
-        <h1 id="let和const命令"><a href="#let和const命令" class="headerlink" title="let和const命令"></a>let和const命令</h1><h2 id="1-let命令"><a href="#1-let命令" class="headerlink" title="1.let命令"></a>1.let命令</h2><h3 id="1-1-基本用法"><a href="#1-1-基本用法" class="headerlink" title="1.1 基本用法"></a>1.1 基本用法</h3><p>let用于申明变量，其用法类似于var。但是所有申明的变量只在let命令所在的代码块内有效。<br><br>for循环有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	<span class="keyword">let</span> i=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//abc</span></span><br><span class="line"><span class="comment">//abc</span></span><br><span class="line"><span class="comment">//abc</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-不存在变量提升"><a href="#1-2-不存在变量提升" class="headerlink" title="1.2 不存在变量提升"></a>1.2 不存在变量提升</h3><p>使用var声明变量会有变量提升的情况，即变量可以在声明之前使用，值为undefined。为了纠正这种情况，let命令改变了语法行为，他所声明的变量一定要在声明之后使用，否则会报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(foo);  <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">var</span> foo=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo1); <span class="comment">//报错</span></span><br><span class="line"><span class="keyword">let</span> foo1=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-暂时性死区"><a href="#1-3-暂时性死区" class="headerlink" title="1.3 暂时性死区"></a>1.3 暂时性死区</h3><p>只要块级作用域内存在let命令，他所声明的变量就“binding”绑定这个区域，不再受外部的影响。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp=<span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">	tmp=<span class="string">'abc'</span>;</span><br><span class="line">	<span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面存在全局作用域tmp，但是块级作用域内又声明了一个局部变量tmp，导致后者绑定这个块级作用域，所以在let声明之前，调用tmp会报错。<br><br>总之，暂时性死区的本质就是<strong>只要进入当前作用域，所要使用的变量就已经存在，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</strong></p>
-<h3 id="1-4-不允许重复声明"><a href="#1-4-不允许重复声明" class="headerlink" title="1.4 不允许重复声明"></a>1.4 不允许重复声明</h3><p>let不允许在相同的作用域中重复声明同一个变量</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> a=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//报错</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> a=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">let</span> a=<span class="number">1</span>;j</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-块级作用域"><a href="#2-块级作用域" class="headerlink" title="2.块级作用域"></a>2.块级作用域</h2><h3 id="2-1-为什么使用块级作用域"><a href="#2-1-为什么使用块级作用域" class="headerlink" title="2.1 为什么使用块级作用域"></a>2.1 为什么使用块级作用域</h3><p>ES5只有全局作用域和函数作用域，没有块级作用域，这导致很多场景不合理。</p>
+        <h1 id="学习-BFC-Block-Formatting-Context"><a href="#学习-BFC-Block-Formatting-Context" class="headerlink" title="学习 BFC (Block Formatting Context)"></a>学习 BFC (Block Formatting Context)</h1><h2 id="什么是BFC"><a href="#什么是BFC" class="headerlink" title="什么是BFC"></a>什么是BFC</h2><p>BFC全称是Block Formatting Context，即块格式化上下文。是关于CSS渲染定位的一个概念。</p>
+<h3 id="视觉格式化模型"><a href="#视觉格式化模型" class="headerlink" title="视觉格式化模型"></a>视觉格式化模型</h3><p>是用来<strong>处理文档并将它显示在视觉媒体上的机制</strong>。</p>
+<p>视觉格式化模型定义了<strong>盒（Box）</strong>的生成，盒主要包括了块盒、行内盒、匿名盒（没有名字不能被选择器选中的盒）以及一些实验性的盒（未来可能添加到规范中）。盒的类型由display属性决定。</p>
+<h4 id="块盒（block-box）"><a href="#块盒（block-box）" class="headerlink" title="块盒（block box）"></a>块盒（block box）</h4><ul>
+<li><p>当元素的CSS属性display为block，list-item或 table时，它是块级元素 block-level；</p>
+</li>
+<li><p>视觉上呈现为块，竖直排列；</p>
+</li>
+<li><p>块级盒参与(块格式化上下文)；</p>
+</li>
+<li><p>每个块级元素至少生成一个块级盒，称为主要块级盒(principal block-level box)。一些元素，比如`<li>，生成额外的盒来放置项目符号，不过多数元素只生成一个主要块级盒。</li></p>
+</li>
+</ul>
+<h4 id="行内盒（inline-box）"><a href="#行内盒（inline-box）" class="headerlink" title="行内盒（inline box）"></a>行内盒（inline box）</h4><ul>
+<li><p>当元素的CSS属性display的计算值为inline，inline-block或inline-table时，称它为行内级元素；</p>
+</li>
+<li><p>视觉上它将内容与其它行内级元素排列为多行；典型的如段落内容，有文本(可以有多种格式譬如着重)，或图片，都是行内级元素；</p>
+</li>
+<li><p>行内级元素生成行内级盒(inline-level boxes)，参与行内格式化上下文(inline formatting context)。同时，参与生成行内格式化上下文的行内级盒称为行内盒(inline boxes)。所有display:inline的非替换元素生成的盒是行内盒；</p>
+</li>
+</ul>
+<h4 id="匿名盒（anonymous-box）"><a href="#匿名盒（anonymous-box）" class="headerlink" title="匿名盒（anonymous box）"></a>匿名盒（anonymous box）</h4><p>匿名盒也有分匿名块盒与匿名行内盒，因为匿名盒没有名字，不能利用选择器来选择它们，所以它们的所有属性都为<strong>inherit</strong>或初始默认值；</p>
+<p>如下面例子，会创键匿名块盒来包含毗邻的行内级盒</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Some inline text</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>followed by a paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    followed by more inline text.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="三个定位方案"><a href="#三个定位方案" class="headerlink" title="三个定位方案"></a>三个定位方案</h3><p>在定位的时候，浏览器就会根据元素的盒类型和上下文对这些元素进行定位，可以说盒就是定位的基本单位。定位时，有三种定位方案，分别是<strong>常规流</strong>，<strong>浮动</strong>以及<strong>绝对定位</strong>。</p>
+<h4 id="常规流-Normal-flow"><a href="#常规流-Normal-flow" class="headerlink" title="常规流(Normal flow)"></a>常规流(Normal flow)</h4><ul>
+<li><p>在常规流中，盒一个接着一个排列;</p>
+</li>
+<li><p>在块级格式化上下文里面， 它们竖着排列；</p>
+</li>
+<li><p>在行内格式化上下文里面， 它们横着排列;</p>
+</li>
+<li><p>当position为<strong>static</strong>或<strong>relative</strong>，并且float为<strong>none</strong>时会触发常规流；</p>
+</li>
+<li><p>对于静态定位(static positioning)，<code>position: static</code>，盒的位置是<strong>常规流布局里的位置</strong></p>
+</li>
+<li><p>对于相对定位(relative positioning)，<code>position: relative</code>，盒偏移位置由这些属性定义<code>top</code>，<code>bottom</code>，<code>left</code>and<code>right</code>。即使有偏移，<strong>仍然保留原有的位置</strong>，其它常规流不能占用这个位置。</p>
+</li>
+</ul>
+<h4 id="浮动-Floats"><a href="#浮动-Floats" class="headerlink" title="浮动(Floats)"></a>浮动(Floats)</h4><ul>
+<li><p>盒称为浮动盒(floating boxes)；</p>
+</li>
+<li><p>它位于当前行的开头或末尾</p>
+</li>
+<li><p><strong>这导致常规流环绕在它的周边</strong>，除非设置 clear 属性</p>
+</li>
+</ul>
+<h4 id="绝对定位-Absolute-positioning"><a href="#绝对定位-Absolute-positioning" class="headerlink" title="绝对定位(Absolute positioning)"></a>绝对定位(Absolute positioning)</h4><ul>
+<li><p>绝对定位方案，<strong>盒从常规流中被移除</strong>，不影响常规流的布局；</p>
+</li>
+<li><p>它的定位相对于它的包含块，相关CSS属性：<strong>top</strong>，<strong>bottom</strong>，<strong>left</strong>及<strong>right</strong>；</p>
+</li>
+<li><p>如果元素的属性<code>position</code>为<code>absolute</code>或<code>fixed</code>，它是绝对定位元素；</p>
+</li>
+<li><p>对于<code>position: absolute</code>，元素定位将相对于最近的一个<code>relative</code>、<code>fixed</code>或<code>absolute</code>的父元素，如果没有则相对于<code>body</code>；</p>
+</li>
+</ul>
+<h3 id="块格式化上下文"><a href="#块格式化上下文" class="headerlink" title="块格式化上下文"></a>块格式化上下文</h3><p>块格式上下文是页面CSS 视觉渲染的一部分，用于决定<strong>块盒子的布局及浮动相互影响范围的一个区域</strong>。</p>
+<h4 id="BFC创建方法"><a href="#BFC创建方法" class="headerlink" title="BFC创建方法"></a>BFC创建方法</h4><ul>
+<li><p><strong>根元素</strong>或其它包含它的元素；</p>
+</li>
+<li><p><strong>浮动</strong> (元素的<code>float</code>不为<code>none</code>)；</p>
+</li>
+<li><p><strong>绝对定位元素</strong> (元素的position为absolute或fixed)；</p>
+</li>
+<li><p><strong>行内块</strong> <code>inline-blocks</code>(元素的 <code>display: inline-block</code>)</p>
+</li>
+<li><p><strong>表格单元格</strong>(元素的<code>display: table-cell</code>，HTML表格单元格默认属性)；</p>
+</li>
+<li><p><code>overflow</code>的值不为<code>visible</code>的元素；</p>
+</li>
+<li><p><strong>弹性盒 flex boxes</strong> (元素的<code>display: flex</code>或<code>inline-flex</code>)；</p>
+</li>
+</ul>
+<p>但其中，最常见的就是<code>overflow:hidden</code>、<code>float:left/right</code>、<code>position:absolute</code>。也就是说，每次看到这些属性的时候，就代表了该元素已经创建了一个BFC了。</p>
+<h4 id="BFC范围"><a href="#BFC范围" class="headerlink" title="BFC范围"></a>BFC范围</h4><p>一个BFC包括所有创建了BFC元素的子元素，但并不包含已经创建新BFC的子元素的内部元素。</p>
+<p>class名为<code>.BFC</code>代表创建了新的块格式化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&apos;div_1&apos; class=&apos;BFC&apos;&gt;</span><br><span class="line">    &lt;div id=&apos;div_2&apos;&gt;</span><br><span class="line">        &lt;div id=&apos;div_3&apos;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=&apos;div_4&apos;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div id=&apos;div_5&apos; class=&apos;BFC&apos;&gt;</span><br><span class="line">        &lt;div id=&apos;div_6&apos;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div id=&apos;div_7&apos;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>这段代码表示，<code>#div_1</code>创建了一个块格式上下文，这个上下文包括了<code>#div_2</code>、<code>#div_3</code>、<code>#div_4</code>、<code>#div_5</code>。即<code>#div_2</code>中的子元素也属于<code>#div_1</code>所创建的BFC。但由于<code>#div_5</code>创建了新的BFC，所以<code>#div_6</code>和<code>#div_7</code>就被排除在外层的BFC之外。</p>
+<p>这从另一方角度说明，<strong>一个元素不能同时存在于两个BFC中.</strong></p>
+<p>BFC的一个<strong>最重要</strong>的效果是，让<strong>处于BFC内部的元素与外部的元素相互隔离，使内外元素的定位不会相互影响</strong>。这是利用BFC清除浮动所利用的特性，关于清除浮动将在后面讲述。</p>
+<p>如果一个元素能够同时处于两个BFC中，那么就意味着这个元素能与两个BFC中的元素发生作用，就违反了BFC的隔离作用，所以这个假设就不成立了。</p>
+<h4 id="BFC的效果"><a href="#BFC的效果" class="headerlink" title="BFC的效果"></a>BFC的效果</h4><p>就如刚才提到的，BFC的最显著的效果就是建立一个<strong>隔离的空间</strong>，断绝空间内外元素间相互的作用。然而，BFC还有更多的特性。</p>
 <ol>
-<li>内层变量可能会覆盖外层变量</li>
+<li><p>内部的盒会在垂直方向一个接一个排列（可以看作BFC中有一个的常规流）</p>
+</li>
+<li><p>处于同一个BFC中的元素相互影响，可能会发生margin collapse</p>
+</li>
+<li><p>每个元素的margin box的左边，与容器块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此；</p>
+</li>
+<li><p>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然；</p>
+</li>
+<li><p>计算BFC的高度时，考虑BFC所包含的所有元素，连浮动元素也参与计算</p>
+</li>
+<li><p>浮动盒区域不叠加到BFC上</p>
+</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(tmp);</span><br><span class="line">	<span class="keyword">if</span>(<span class="literal">false</span>)&#123;</span><br><span class="line">		<span class="keyword">var</span> tmp=<span class="string">"hello world"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>用来计数的循环变量泄漏为全局变量</li>
-</ol>
-<h3 id="2-2-ES6的块级作用域"><a href="#2-2-ES6的块级作用域" class="headerlink" title="2.2 ES6的块级作用域"></a>2.2 ES6的块级作用域</h3><p>let实际上为JavaScript新增了块级作用域</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> n=<span class="number">5</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="keyword">let</span> n=<span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">console</span>.log(n);</span><br><span class="line">&#125;</span><br><span class="line">f1(); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-<p>外层代码不受内层代码的影响，如果使用var定义变量n，最后输出的值就是10.<br><br>ES6允许块级作用域的任意嵌套，并且外层作用域无法读取内层作用域的变量。内层作用域可以定义和外层作用域的同名变量<br><br>块级作用的出现，实际上使得立即执行匿名函数不再必要</p>
-<h3 id="2-3-块级作用域和函数声明"><a href="#2-3-块级作用域和函数声明" class="headerlink" title="2.3 块级作用域和函数声明"></a>2.3 块级作用域和函数声明</h3><p>ES5规定，函数只能在顶层作用域和函数作用域中声明，不能在块级作用域中声明。但是浏览器并没有遵守这个规定。<br><br>ES6引入块级作用域，明确允许在块级作用域之中声明函数。在块级作用域之中声明函数类似于let，在块级作用域之外不可引用。</p>
-<h3 id="2-4-do表达式"><a href="#2-4-do表达式" class="headerlink" title="2.4 do表达式"></a>2.4 do表达式</h3><p>本质上，块级作用域是一个语句，将多个操作封装在一起，没有返回值。<br><br>现在有一个提案使得块级作用域可以变为表达式，即可以返回值，操作如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x=<span class="keyword">do</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> t=f();</span><br><span class="line">	t*t+<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="3-const命令"><a href="#3-const命令" class="headerlink" title="3.const命令"></a>3.const命令</h2><h3 id="3-1-基本用法"><a href="#3-1-基本用法" class="headerlink" title="3.1 基本用法"></a>3.1 基本用法</h3><p>const声明一个只读常量。一旦声明，常量的值不能改变。const一旦声明常量，就必须立即初始化，不能留到以后赋值。其余特性和let一样。</p>
-<h3 id="3-2-本质"><a href="#3-2-本质" class="headerlink" title="3.2 本质"></a>3.2 本质</h3><p>const实际上保证的并不是变量的值不得改动，而是变量指向的那个内存地址不得改动。对于简单类型的数据而言，值就保存在变量指向的内存地址中,因此等同于常量。但对于复合类型的数据，变量指向的内存地址只是一个指针，const只能保证这个指针是固定的，至于他指向的数据结构是不是可变的，这完全不能控制。<br><br>如果想将对象冻结，应该使用Object.freeze方法。<code>const foo=Object.freeze({});</code></p>
-<h3 id="3-3-ES6声明变量的6种方法"><a href="#3-3-ES6声明变量的6种方法" class="headerlink" title="3.3 ES6声明变量的6种方法"></a>3.3 ES6声明变量的6种方法</h3><p>ES5: 使用var命令和function命令。<br>ES6: 添加了let和const命令，还有import和class命令。</p>
-<h2 id="4-顶层对象属性"><a href="#4-顶层对象属性" class="headerlink" title="4.顶层对象属性"></a>4.顶层对象属性</h2><p>顶层对象在浏览器中是指window对象，在Node环境中指的是global对象。在ES5中，顶层对象属性和与全局变量是等价的。<br><br>ES6规定，var命令和function命令声明的全局变量依旧是顶层对象属性；其次，let命令、const命令、class命令声明的<strong>全局变量不属于顶层对象属性</strong>。</p>
-<h2 id="5-global对象"><a href="#5-global对象" class="headerlink" title="5.global对象"></a>5.global对象</h2><p>ES5的顶层对象本身也是一个问题，因为他在各种实现中是不统一的。</p>
+<p>帮助理解：html的根元素就是<code>&lt;html&gt;</code>，而根元素会创建一个BFC，创建一个新的BFC时就相当于在这个元素内部创建一个新的<code>&lt;html&gt;</code>，子元素的定位就如同在一个新<code>&lt;html&gt;</code>页面中那样，而这个新旧html页面之间时不会相互影响的。</p>
 
       
     </div>
@@ -493,7 +563,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ES6/" <i class="fafa-tag"></i> ES6</a>
+            <a href="/tags/面试/" <i class="fafa-tag"></i> 面试</a>
           
         </div>
       
@@ -506,8 +576,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/19/Vue_No1/" rel="next" title="Vue.js基础">
-                <i class="fa fa-chevron-left"></i> Vue.js基础
+              <a href="/2019/03/12/准备面试--CSS&HTML-2/" rel="next" title="准备面试--CSS&HTML-2">
+                <i class="fa fa-chevron-left"></i> 准备面试--CSS&HTML-2
               </a>
             
           </div>
@@ -515,10 +585,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/23/Vue--计算属性/" rel="prev" title="Vue.js基础--计算属性">
-                Vue.js基础--计算属性 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -686,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#let和const命令"><span class="nav-number">1.</span> <span class="nav-text">let和const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-let命令"><span class="nav-number">1.1.</span> <span class="nav-text">1.let命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-基本用法"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-不存在变量提升"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 不存在变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-暂时性死区"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 暂时性死区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-不允许重复声明"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 不允许重复声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-块级作用域"><span class="nav-number">1.2.</span> <span class="nav-text">2.块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-为什么使用块级作用域"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 为什么使用块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-ES6的块级作用域"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 ES6的块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-块级作用域和函数声明"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 块级作用域和函数声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-do表达式"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 do表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-const命令"><span class="nav-number">1.3.</span> <span class="nav-text">3.const命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-基本用法"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-本质"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-ES6声明变量的6种方法"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 ES6声明变量的6种方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-顶层对象属性"><span class="nav-number">1.4.</span> <span class="nav-text">4.顶层对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-global对象"><span class="nav-number">1.5.</span> <span class="nav-text">5.global对象</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#学习-BFC-Block-Formatting-Context"><span class="nav-number">1.</span> <span class="nav-text">学习 BFC (Block Formatting Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是BFC"><span class="nav-number">1.1.</span> <span class="nav-text">什么是BFC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#视觉格式化模型"><span class="nav-number">1.1.1.</span> <span class="nav-text">视觉格式化模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#块盒（block-box）"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">块盒（block box）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行内盒（inline-box）"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">行内盒（inline box）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名盒（anonymous-box）"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">匿名盒（anonymous box）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三个定位方案"><span class="nav-number">1.1.2.</span> <span class="nav-text">三个定位方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常规流-Normal-flow"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">常规流(Normal flow)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动-Floats"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">浮动(Floats)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位-Absolute-positioning"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">绝对定位(Absolute positioning)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块格式化上下文"><span class="nav-number">1.1.3.</span> <span class="nav-text">块格式化上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC创建方法"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">BFC创建方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC范围"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">BFC范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC的效果"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">BFC的效果</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -858,9 +924,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/04/21/ES6--let和const命令/';
-          this.page.identifier = '2018/04/21/ES6--let和const命令/';
-          this.page.title = 'ES6--let和const';
+          this.page.url = 'http://yoursite.com/2019/03/26/学习 BFC (Block Formatting Context)/';
+          this.page.identifier = '2019/03/26/学习 BFC (Block Formatting Context)/';
+          this.page.title = '准备面试--BFC';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://chen.disqus.com/embed.js';
