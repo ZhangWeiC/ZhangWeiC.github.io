@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="面试," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Function类型函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。 函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 var sum=new Function(&amp;quot;num1&amp;quot;,&amp;quot;num2&amp;quot;,&amp;quot;return num1+nu">
-<meta name="keywords" content="js">
+<meta name="description" content="JavaScript 执行机制关于javascriptjavascript是一门单线程语言，在最新的HTML5中提出了Web-Worker，但javascript是单线程这一核心仍未改变。所以一切javascript版的”多线程”都是用单线程模拟出来的，一切javascript多线程都是纸老虎！ javascript事件循环既然js是单线程，那就像只有一个窗口的银行，客户需要排队一个一个办理业务，">
+<meta name="keywords" content="面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="引用类型之Function类型学习笔记">
-<meta property="og:url" content="http://yoursite.com/2018/02/26/Function类型学习笔记/index.html">
+<meta property="og:title" content="准备面试--JavaScript 执行机制">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/JavaScript 执行机制/index.html">
 <meta property="og:site_name" content="小宸兄的博客">
-<meta property="og:description" content="Function类型函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。 函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 var sum=new Function(&amp;quot;num1&amp;quot;,&amp;quot;num2&amp;quot;,&amp;quot;return num1+nu">
+<meta property="og:description" content="JavaScript 执行机制关于javascriptjavascript是一门单线程语言，在最新的HTML5中提出了Web-Worker，但javascript是单线程这一核心仍未改变。所以一切javascript版的”多线程”都是用单线程模拟出来的，一切javascript多线程都是纸老虎！ javascript事件循环既然js是单线程，那就像只有一个窗口的银行，客户需要排队一个一个办理业务，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T03:28:28.506Z">
+<meta property="og:updated_time" content="2019-03-27T03:40:42.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="引用类型之Function类型学习笔记">
-<meta name="twitter:description" content="Function类型函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。 函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 var sum=new Function(&amp;quot;num1&amp;quot;,&amp;quot;num2&amp;quot;,&amp;quot;return num1+nu">
+<meta name="twitter:title" content="准备面试--JavaScript 执行机制">
+<meta name="twitter:description" content="JavaScript 执行机制关于javascriptjavascript是一门单线程语言，在最新的HTML5中提出了Web-Worker，但javascript是单线程这一核心仍未改变。所以一切javascript版的”多线程”都是用单线程模拟出来的，一切javascript多线程都是纸老虎！ javascript事件循环既然js是单线程，那就像只有一个窗口的银行，客户需要排队一个一个办理业务，">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/26/Function类型学习笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/JavaScript 执行机制/"/>
 
 
 
 
 
-  <title>引用类型之Function类型学习笔记 | 小宸兄的博客</title>
+  <title>准备面试--JavaScript 执行机制 | 小宸兄的博客</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/26/Function类型学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/JavaScript 执行机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">引用类型之Function类型学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">准备面试--JavaScript 执行机制</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T00:00:00+08:00">
-                2018-02-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T00:00:00+08:00">
+                2019-03-26
               </time>
             
 
@@ -359,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习心得/" itemprop="url" rel="index">
-                    <span itemprop="name">学习心得</span>
+                  <a href="/categories/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
                   </a>
                 </span>
 
@@ -377,9 +377,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/26/Function类型学习笔记/#comments" itemprop="discussionUrl">
+                <a href="/2019/03/26/JavaScript 执行机制/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/26/Function类型学习笔记/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2019/03/26/JavaScript 执行机制/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,210
+                  1,280
                 </span>
               
 
@@ -438,40 +438,66 @@
       
 
       
-        <h1 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h1><p>函数实际上是对象，因此函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。由于函数名仅仅是指向函数的指针，一个函数可能会有多个名字。</p>
-<p>函数定义的三种方式：1、函数声明  2、函数表达式  3、使用Function构造函数 <code>var sum=new Function(&quot;num1&quot;,&quot;num2&quot;,&quot;return num1+num2&quot;)</code>.</p>
-<h2 id="1-没有重载"><a href="#1-没有重载" class="headerlink" title="1.没有重载"></a>1.没有重载</h2><p>可以将函数名想象为指针来理解为什么没有重载。如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">30</span>+num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">40</span>+num;</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">20</span>)   <span class="comment">//60</span></span><br></pre></td></tr></table></figure>
-<p>以上代码输出60，说明第二次函数声明覆盖了第一次函数声明，这就说明了函数没有重载，以上代码等价于下面代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum=<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">30</span>+num;</span><br><span class="line">&#125;;</span><br><span class="line">sum=<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">40</span>+num;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><em>切记：函数名只是指向函数对象的指针</em></p>
-<h2 id="2-函数声明和函数表达式"><a href="#2-函数声明和函数表达式" class="headerlink" title="2.函数声明和函数表达式"></a>2.函数声明和函数表达式</h2><blockquote>
-<p>区别：解析器会首先读取函数声明，使任意代码都可以使用；而函数表达式则要等到执行到该代码行才会被解析。</p>
-</blockquote>
-<h2 id="3-作为值的函数"><a href="#3-作为值的函数" class="headerlink" title="3.作为值的函数"></a>3.作为值的函数</h2><blockquote>
-<p>因为函数名本身就是变量，所以函数也可以作为值来使用。意思是，1、函数可以作为另一个函数的参数 2、函数可以作为一个函数的返回值</p>
-</blockquote>
-<h2 id="4-函数内部属性"><a href="#4-函数内部属性" class="headerlink" title="4.函数内部属性"></a>4.函数内部属性</h2><blockquote>
-<p>在函数内部有两个特殊的对象：arguments和this。arguments是一个类数组对象，保存着函数所有参数。</p>
-</blockquote>
-<p>arguments对象只是与数组类似，它并不是Array的实例。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayhi</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="string">','</span>+<span class="built_in">arguments</span>[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码不包含命名的参数，但函数功能依旧。这说明了ECMAScript函数的一个重要特点：<strong>命名的参数只提供便利，但不是必须的。</strong>arguments的length属性表示参数的个数。另外arguments对象可以和命名参数一起使用。最后，没有传递值的命名参数将自动被赋予undefined的值，跟定义了变量未初始化一样。</p>
-<p>arguments还有个特殊的属性callee：该属性是一个指针，指向拥有这个arguments对象的函数。使用如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>(</span><br><span class="line">		<span class="keyword">return</span> num*factorial(num<span class="number">-1</span>);</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面代码将函数和函数名紧密地联系在了一起，如果将该函数名赋值给另外一个变量，再将此函数名指向另外一个函数，调用另外一个变量对应的函数时，则会受到该变量名的影响。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(num&lt;=<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> num*<span class="built_in">arguments</span>.callee(num<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数内部对象this，this的值是函数执行的环境对象。（当在网页的全局作用域调用函数时this对象的值为window）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color=<span class="string">'red'</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">color</span>:<span class="string">'blue'</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line">sayColor();   <span class="comment">//red   this:window</span></span><br><span class="line">o.sayColor=sayColor;</span><br><span class="line">o.sayColor();    <span class="comment">//blue   this:o</span></span><br></pre></td></tr></table></figure>
-<p>还有一个函数对象的属性：caller。这个属性保存着调用当前函数的函数的引用，如果在全局作用域中调用当前函数，他的值为null。我的理解是，函数A在函数B中调用，函数A中的caller属性就指向函数B。</p>
-<h2 id="5-函数的属性和方法"><a href="#5-函数的属性和方法" class="headerlink" title="5.函数的属性和方法"></a>5.函数的属性和方法</h2><h3 id="每个函数都包含了两个属性：length和prototype。"><a href="#每个函数都包含了两个属性：length和prototype。" class="headerlink" title="每个函数都包含了两个属性：length和prototype。"></a>每个函数都包含了两个属性：length和prototype。</h3><p>length属性表示希望接受的命名参数的个数。而arguments.length表示有多少个参数传递给了函数。前者说的是命名参数的个数，后者并没有强调命名参数。</p>
-<p>1) 对于ECMAScript中的引用类型而言，prototype是保存它们所有实例方法的真正所在。2)在创建自定义引用类型以及实现以及实现继承prototype属性是及其重要的。3) prototype属性是不可枚举的，因此使用for-in无法发现。</p>
-<h2 id="每个函数都包含两个非继承而来的的方法：apply-和call"><a href="#每个函数都包含两个非继承而来的的方法：apply-和call" class="headerlink" title="每个函数都包含两个非继承而来的的方法：apply()和call()"></a>每个函数都包含两个非继承而来的的方法：apply()和call()</h2><p>两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。</p>
-<p>apply()第一个参数在其中运行函数的作用域；另一个是参数数组，可以是Array实例也可以是arguments对象。</p>
-<p>call()第一个参数是this值，其余参数都必须逐个列举出来。</p>
-<p>他俩的作用：扩充函数赖以运行的作用域。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color=<span class="string">'red'</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;<span class="attr">color</span>:<span class="string">'blue'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayColor();       <span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="keyword">this</span>);    <span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="built_in">window</span>);    <span class="comment">//red</span></span><br><span class="line">sayColor.call(o)   <span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
-<p>sayColor.call(this)和sayColor.call(window)是两种显式的在全局作用域中调用函数的方式。sayColor.call(o)此时函数体内的this对象指向了o。</p>
+        <h1 id="JavaScript-执行机制"><a href="#JavaScript-执行机制" class="headerlink" title="JavaScript 执行机制"></a>JavaScript 执行机制</h1><h2 id="关于javascript"><a href="#关于javascript" class="headerlink" title="关于javascript"></a>关于javascript</h2><p>javascript是一门<strong>单线程</strong>语言，在最新的HTML5中提出了Web-Worker，但javascript是单线程这一核心仍未改变。所以一切javascript版的”多线程”都是用单线程模拟出来的，一切javascript多线程都是<strong>纸老虎！</strong></p>
+<h2 id="javascript事件循环"><a href="#javascript事件循环" class="headerlink" title="javascript事件循环"></a>javascript事件循环</h2><p>既然js是单线程，那就像只有一个窗口的银行，客户需要排队一个一个办理业务，同理js任务也要一个一个顺序执行。如果一个任务耗时过长，那么后一个任务也必须等着。那么问题来了，假如我们想浏览新闻，但是新闻包含的超清图片加载很慢，难道我们的网页要一直卡着直到图片完全显示出来？因此聪明的程序员将任务分为两类：</p>
+<ul>
+<li><p>同步任务</p>
+</li>
+<li><p>异步任务</p>
+</li>
+</ul>
+<p>当我们打开网站时，网页的渲染过程就是一大堆同步任务，比如页面骨架和页面元素的渲染。而像加载图片音乐之类占用资源大耗时久的任务，就是异步任务。过程如下</p>
+<ul>
+<li><p>同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入<strong>Event Table</strong>并注册函数。</p>
+</li>
+<li><p>当指定的事情完成时，Event Table会将这个函数移入Event Queue。</p>
+</li>
+<li><p>主线程内的任务<strong>执行完毕</strong>为空，会去<strong>Event Queue</strong>读取对应的函数，进入主线程执行。</p>
+</li>
+<li><p>上述过程会不断重复，也就是常说的<strong>Event Loop(事件循环)</strong>。</p>
+</li>
+</ul>
+<p>js引擎存在<strong>monitoring process</strong>进程，会持续不断的检查主线程执行栈是否为空，一旦为空，就会去<strong>Event Queue</strong>那里检查是否有等待被调用的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = [];</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">	url: www.javascript.com,</span><br><span class="line">	data: data,</span><br><span class="line">	success: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'发送成功'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"代码执行结束"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>ajax 进入Event table，注册回调函数success。</p>
+</li>
+<li><p>执行主线程<code>console.log(&quot;代码执行结束&quot;)</code>。</p>
+</li>
+<li><p>ajax事件完成，回调函数进入Event Queue。</p>
+</li>
+<li><p>主线程从Event Queue读取回调函数<code>success</code>并执行。</p>
+</li>
+</ul>
+<h2 id="磨人的setTimeout"><a href="#磨人的setTimeout" class="headerlink" title="磨人的setTimeout"></a>磨人的setTimeout</h2><p>小弟对他的第一印象就是延时执行，like this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"延时三秒"</span>);</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+<p>但有时候他又不止延时三秒，小弟也是一脸懵逼。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	task();</span><br><span class="line">&#125;, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">1000000</span>);</span><br></pre></td></tr></table></figure>
+<p>一执行，三秒之后毛都没有，等了很久很久task才执行，很奔溃😢。仔细一想，过程如下：</p>
+<ul>
+<li><p><code>task()</code>进入Event Table, 并注册。</p>
+</li>
+<li><p>主线程执行<code>sleep</code>函数，很慢，非常慢，计时仍在继续。</p>
+</li>
+<li><p>三秒计时到了，计时事件<code>timeout</code>完成，<code>task()</code>进入<code>Event Queue</code>，但是<code>sleep</code>也太慢了吧，还没执行完，只好等着。</p>
+</li>
+<li><p><code>sleep</code>终于执行完了，<code>task()</code>终于从<strong>Event Queue</strong>进入了主线程执行。</p>
+</li>
+</ul>
+<p>上述的流程走完，我们知道<code>setTimeout</code>这个函数，是经过指定时间后，把要执行的任务(本例中为<code>task()</code>)加入到<code>Event Queue</code>中，又因为是单线程任务要一个一个执行，如果前面的任务需要的时间太久，那么只能等着，导致真正的延迟时间远远大于3秒。</p>
+<p>我们还经常遇到<code>setTimeout(fn,0)</code>这样的代码。<code>setTimeout(fn,0)</code>的含义是，指定某个任务在主线程最早可得的空闲时间执行，意思就是不用再等多少秒了，只要主线程执行栈内的同步任务全部执行完成，栈为空就马上执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代码1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'先执行这里'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'执行啦'</span>)</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//先执行这里</span></span><br><span class="line"><span class="comment">//执行啦</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//代码2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'先执行这里'</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'执行啦'</span>)</span><br><span class="line">&#125;,<span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//先执行这里</span></span><br><span class="line"><span class="comment">//3秒后</span></span><br><span class="line"><span class="comment">//执行啦</span></span><br></pre></td></tr></table></figure>
+<p>关于<code>setTimeout</code>要补充的是，即便主线程为空，0毫秒实际上也是达不到的。根据HTML的标准，最低是<strong>4毫秒</strong>。</p>
+<h2 id="继续磨人的setInterval"><a href="#继续磨人的setInterval" class="headerlink" title="继续磨人的setInterval"></a>继续磨人的setInterval</h2><p>上面说完了<code>setTimeout</code>，当然不能错过它的孪生兄弟<code>setInterval</code>。他俩差不多，只不过后者是循环的执行。对于执行顺序来说，<code>setInterval</code>会每隔指定的时间将注册的函数置入<code>Event Queue</code>，如果前面的任务耗时太久，那么同样需要等待。</p>
+<p>唯一需要注意的一点是，对于<code>setInterval(fn,ms)</code>来说，我们已经知道不是每过ms秒会执行一次fn，而是每过ms秒，<strong>会有fn进入Event Queue</strong>。<strong>一旦setInterval的回调函数fn执行时间超过了延迟时间ms，那么就完全看不出来有时间间隔了。</strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="js异步"><a href="#js异步" class="headerlink" title="js异步"></a>js异步</h3><p>javascript是一门<strong>单线程语言</strong>，不管是什么新框架新语法糖实现的所谓异步，其实都是用同步的方法去模拟的，牢牢把握住<strong>单线程</strong>这点非常重要。</p>
+<h3 id="事件循环Event-Loop"><a href="#事件循环Event-Loop" class="headerlink" title="事件循环Event Loop"></a>事件循环Event Loop</h3><p>事件循环是js实现异步的一种方法，也是js的执行机制。</p>
+<h3 id="总结之总结"><a href="#总结之总结" class="headerlink" title="总结之总结"></a>总结之总结</h3><ul>
+<li><p>javascript是一门单线程语言</p>
+</li>
+<li><p>Event Loop是javascript的执行机制</p>
+</li>
+</ul>
 
       
     </div>
@@ -499,7 +525,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" <i class="fafa-tag"></i> js</a>
+            <a href="/tags/面试/" <i class="fafa-tag"></i> 面试</a>
           
         </div>
       
@@ -512,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/25/html5实现滑动解锁功能/" rel="next" title="html5实现滑动解锁功能">
-                <i class="fa fa-chevron-left"></i> html5实现滑动解锁功能
+              <a href="/2019/03/12/准备面试--CSS&HTML-2/" rel="next" title="准备面试--CSS&HTML-2">
+                <i class="fa fa-chevron-left"></i> 准备面试--CSS&HTML-2
               </a>
             
           </div>
@@ -522,8 +548,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/02/27/变量、作用域和内存问题学习笔记/" rel="prev" title="变量、作用域和内存问题学习笔记">
-                变量、作用域和内存问题学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/26/学习 BFC (Block Formatting Context)/" rel="prev" title="准备面试--BFC">
+                准备面试--BFC <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -692,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Function类型"><span class="nav-number">1.</span> <span class="nav-text">Function类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-没有重载"><span class="nav-number">1.1.</span> <span class="nav-text">1.没有重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-函数声明和函数表达式"><span class="nav-number">1.2.</span> <span class="nav-text">2.函数声明和函数表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作为值的函数"><span class="nav-number">1.3.</span> <span class="nav-text">3.作为值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-函数内部属性"><span class="nav-number">1.4.</span> <span class="nav-text">4.函数内部属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-函数的属性和方法"><span class="nav-number">1.5.</span> <span class="nav-text">5.函数的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#每个函数都包含了两个属性：length和prototype。"><span class="nav-number">1.5.1.</span> <span class="nav-text">每个函数都包含了两个属性：length和prototype。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每个函数都包含两个非继承而来的的方法：apply-和call"><span class="nav-number">1.6.</span> <span class="nav-text">每个函数都包含两个非继承而来的的方法：apply()和call()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-执行机制"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 执行机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于javascript"><span class="nav-number">1.1.</span> <span class="nav-text">关于javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript事件循环"><span class="nav-number">1.2.</span> <span class="nav-text">javascript事件循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磨人的setTimeout"><span class="nav-number">1.3.</span> <span class="nav-text">磨人的setTimeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续磨人的setInterval"><span class="nav-number">1.4.</span> <span class="nav-text">继续磨人的setInterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#js异步"><span class="nav-number">1.5.1.</span> <span class="nav-text">js异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件循环Event-Loop"><span class="nav-number">1.5.2.</span> <span class="nav-text">事件循环Event Loop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结之总结"><span class="nav-number">1.5.3.</span> <span class="nav-text">总结之总结</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -864,9 +890,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/02/26/Function类型学习笔记/';
-          this.page.identifier = '2018/02/26/Function类型学习笔记/';
-          this.page.title = '引用类型之Function类型学习笔记';
+          this.page.url = 'http://yoursite.com/2019/03/26/JavaScript 执行机制/';
+          this.page.identifier = '2019/03/26/JavaScript 执行机制/';
+          this.page.title = '准备面试--JavaScript 执行机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://chen.disqus.com/embed.js';
