@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="WEB," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="WEB相关知识TCPTCP: Transmission Control Protocol, 传输控制协议，是一种面向连接的、可靠的、基于字节流的传输层通信协议。 通讯双方建立一次tcp连接，也需要经过三个步骤（握手）。  客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认。 服务端收到syn包，必须确认客户的SYN(ack=j+1)，同时自己也发送一个SYN包(s">
+<meta name="keywords" content="WEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB相关知识">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/WEB相关知识/index.html">
+<meta property="og:site_name" content="小宸兄的博客">
+<meta property="og:description" content="WEB相关知识TCPTCP: Transmission Control Protocol, 传输控制协议，是一种面向连接的、可靠的、基于字节流的传输层通信协议。 通讯双方建立一次tcp连接，也需要经过三个步骤（握手）。  客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认。 服务端收到syn包，必须确认客户的SYN(ack=j+1)，同时自己也发送一个SYN包(s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-28T15:41:47.782Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WEB相关知识">
+<meta name="twitter:description" content="WEB相关知识TCPTCP: Transmission Control Protocol, 传输控制协议，是一种面向连接的、可靠的、基于字节流的传输层通信协议。 通讯双方建立一次tcp连接，也需要经过三个步骤（握手）。  客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认。 服务端收到syn包，必须确认客户的SYN(ack=j+1)，同时自己也发送一个SYN包(s">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/26/WEB相关知识/"/>
+
+
+
+
+
+  <title>WEB相关知识 | 小宸兄的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2038de8caca7f0321894a552d20548a5";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小宸兄的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/WEB相关知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小宸兄的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">WEB相关知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T00:00:00+08:00">
+                2019-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/26/WEB相关知识/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/04/26/WEB相关知识/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,994
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="WEB相关知识"><a href="#WEB相关知识" class="headerlink" title="WEB相关知识"></a>WEB相关知识</h1><h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>TCP: Transmission Control Protocol, 传输控制协议，是一种面向连接的、可靠的、基于字节流的传输层通信协议。</p>
+<p>通讯双方建立一次tcp连接，也需要经过三个步骤（握手）。</p>
+<ol>
+<li>客户端发送syn包(syn=j)到服务器，并进入SYN_SEND状态，等待服务器确认。</li>
+<li>服务端收到syn包，必须确认客户的SYN(ack=j+1)，同时自己也发送一个SYN包(syn=k)，即SYN+ACK包，此时服务器进入SYN_RECV状态。</li>
+<li>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。</li>
+</ol>
+<blockquote>
+<p>SYN：synchronous 建立联机</p>
+<p>ACK：acknowledgement 确认</p>
+<p>SYN_SENT: 请求连接</p>
+<p>SYN_RECV：服务端被动打开后，接受到了客户端的SYN并且发送了ACK时的状态。再进一步接收到客户端的ACK就进入ESTABLISHED状态</p>
+</blockquote>
+<p>注意：<strong>tcp在握手过程中并不携带数据，而是在三次握手完成之后，才会进行数据传输。</strong></p>
+<p>至于它的应用场景，其实是根据它本身的特点而定的，比如对<strong>网络通讯质量有要求，需要保证数据准确性</strong>时，就需要用到TCP协议了，如HTTP、ftp等文件传输协议、或一些邮件传输协议（SMTP、pop等）</p>
+<h2 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h2><p>UDP：User Datagram Protocol 用户数据报协议</p>
+<p>相比于TCP的面向连接需要反复确认的繁琐步骤，UDP是一种<strong>性格特立独行且主观性超强</strong>的<strong>非面向连接</strong>的协议，使用udp协议经常通信并不需要建立连接，它只是负责把数据尽可能快的发送出去，简单粗暴，并且<strong>不可靠</strong>，而在接收端，UDP把每个消息断放入队列中，接收端程序从队列中读取数据。</p>
+<p>虽然UDP不可靠，但是它的传输速度快，效率高，在一些对数据准确性要求不高的场景，UDP就变得很有用了，比如qq语音、qq视频。</p>
+<h2 id="套接字socket"><a href="#套接字socket" class="headerlink" title="套接字socket"></a>套接字socket</h2><p>TCP或UDP都是一种协议，也就是计算机网络通信中在传输层的一种协议，简单地说，就是一种约定，就像合作双方的合同一样，然后合同是死的，只有履行合同才是实质性的行动，因此无论是TCP还是UDP要产生作用，都需要有<strong>实际的行为</strong>去执行才能体现协议的作用。</p>
+<p><strong>socket</strong>：也叫套接字，是一组实现TCP/UDP通信的接口API，也就是无论TCP还是UDP，通过对socket的编程，都可以实现TCP/UCP通信，作为一个通信链的句柄，它包含网络通信必备的5种信息：</p>
+<ol>
+<li>连接使用的协议</li>
+<li>本地主机的IP地址</li>
+<li>本地进程的协议端口</li>
+<li>远地主机的IP地址</li>
+<li>远地进程的协议端口</li>
+</ol>
+<p>socket包含了通信本方和对方的<strong>ip和端口</strong>以及<strong>连接使用的协议（TCP/UDP）</strong>。通信双方中的一方（暂称：客户端）通过scoket（嵌套字）对另一方（暂称：服务端）发起连接请求，服务端在网络上监听请求，当收到客户端发来的请求之后，根据socket里携带的信息，定位到客户端，就相应请求，把socket描述发给客户端，双方确认之后连接就建立了。</p>
+<p>套接字之间连接过程有三个步骤：</p>
+<ol>
+<li>服务器监听：服务器实时监控网络状态等待客户端发来的连接请求。</li>
+<li>客户端请求：客户端根据远程主机服务器的IP地址和协议向其发起连接请求。</li>
+<li>连接确认：服务端收到套接字的连接请求之后，就响应请求，把服务端套接字描述发给客户端，客户端收到后一旦确认，则双方建立连接，进行数据交互。</li>
+</ol>
+<p>socket在即时通讯（qq等各种聊天软件）等应用上应用广泛。</p>
+<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p><strong>HTTP协议</strong>：Hypertext Transfer Protocol 也叫<strong>超文本传送协议</strong>，它是一种基于TCP/IP协议栈、在<strong>表示层和应用层</strong>上的协议（TCP在传输层的协议），通俗一点说就是：</p>
+<ul>
+<li>TCP/IP是位于传输层上的一种协议，用于在网络上传输数据。</li>
+<li>HTTP协议是应用层协议，基于TCP协议，用于包装数据，程序使用它包装数据，可以简单高效的处理通信中数据的传输和识别处理</li>
+</ul>
+<p>而在现在应用非常广泛的HTTP连接则是建立在HTTP协议上的、处于应用层中的一种具体应用。</p>
+<p>上面说到socket连接一旦建立就保持连接状态，而HTTP连接则不一样，它基于tcp协议的短连接，也就是客户端发起请求，服务器响应请求之后，连接就会自动断开，不会一直保持。</p>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>前面讲了tcp、udp、http…等等都是为了讲一个具体问题而做的知识点铺垫，那就是：<strong>我们开发的web应用中请求的发起和响应，是一个怎样的底层原理。</strong></p>
+<p>web应用绝大部分都是通过HTTP来进行请求的，而URL则是HTTP用来做连接建立和传输数据的一种具体实现。</p>
+<p><strong>URL</strong>：Uniform Resource Locator 统一资源定位符。说白了就是网络上用来标识具体资源的一个地址，包含了用户查找该资源的信息，HTTP使用它来传输数据和建立连接。</p>
+<p>一个URL有以下组成部分：</p>
+<ul>
+<li>协议</li>
+<li>服务器地址(域名或IP+端口)</li>
+<li>路径</li>
+<li>文件名</li>
+</ul>
+<p>比如 <a href="https://www.baidu.com/index.html" target="_blank" rel="noopener">https://www.baidu.com/index.html</a></p>
+<ul>
+<li>https://是一种协议，当然，HTTP也是，ftp也是…</li>
+<li><a href="http://www.baidu.com是服务器地址，通过ping命令得到百度的ip" target="_blank" rel="noopener">www.baidu.com是服务器地址，通过ping命令得到百度的ip</a> 14.215.177.39，那么我们可以用<a href="http://14.215.177.39打开百度" target="_blank" rel="noopener">http://14.215.177.39打开百度</a></li>
+<li>index.html包含了路径和文件名，当天通常index.html是可以省略的，所以打开百度时，并没有看到这个</li>
+</ul>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p><strong>DNS</strong>：Domain Name Server，域名服务器。</p>
+<p>是进行域名(domain name)和与之相对应的IP地址 (IP address)转换的服务器。</p>
+<p>DNS中保存了一张<strong>域名</strong>(domain name)和与之相对应的<strong>IP地址</strong> (IP address)的表，以解析消息的域名。</p>
+<p>在平时我们进行开发时，后端提供的接口地址通常是有IP地址加上端口号（8080什么鬼的）组成的，但是当我们把网站发布出去时，通常都需要把IP改成用域名。</p>
+<p><strong>因此，当用户在浏览器输入<a href="https://www.baidu.com回车时，它经历了以下步骤：" target="_blank" rel="noopener">https://www.baidu.com回车时，它经历了以下步骤：</a></strong></p>
+<ul>
+<li>浏览器根据地址去本身缓存中查找dns解析记录，如果有，则直接返回IP地址，否则浏览器会查找操作系统中（host文件）是否有该域名的dns解析记录，如果有则返回。</li>
+<li>如果浏览器缓存和操作系统hosts中均无dns解析记录，或者已经过期，此时就会向域名服务器发起请求来解析这个域名。</li>
+<li>请求会先到LDNS（本地域名服务器），让它来尝试解析这个域名，如果LDNS也解析不了，则直接到<strong>根域名解析器</strong>请求解析</li>
+<li>根域名服务器给LDNS返回一个所查询的<strong>主域名服务器（gTLDServer）地址</strong>。</li>
+<li>此时LDNS再向上一步返回的<strong>gTLD服务器</strong>发起解析请求。</li>
+<li>gTLD服务器接收到解析请求后查找并返回此域名对应的<strong>Name Server域名服务器</strong>的地址，这个Name Server通常就是你注册的域名服务器（比如阿里dns、腾讯dns等）</li>
+<li>Name Server域名服务器会查询存储的域名和IP的<strong>映射关系表</strong>，正常情况下都根据域名得到<strong>目标IP记录</strong>，连同一个TTL值返回给DNS Server域名服务器</li>
+<li>返回该域名<strong>对应的IP和TTL值</strong>，Local DNS Server会缓存这个域名和IP的对应关系，缓存的时间由TTL值控制。</li>
+<li>把解析的结果返回给用户，用户根据TTL值缓存在本地系统缓存中，域名解析过程结束。</li>
+</ul>
+<h2 id="HTTP请求发起和响应"><a href="#HTTP请求发起和响应" class="headerlink" title="HTTP请求发起和响应"></a>HTTP请求发起和响应</h2><p>在一个web程序开发中，一般都有前端和后端之分，前端负责向后端请求数据和展示页面，后端负责接收请求和做出响应发回给前端，他们之间的协作的桥梁是什么呢？是API</p>
+<h3 id="从用户输入URL，到浏览器呈现给用户页面，经历了什么过程？"><a href="#从用户输入URL，到浏览器呈现给用户页面，经历了什么过程？" class="headerlink" title="从用户输入URL，到浏览器呈现给用户页面，经历了什么过程？"></a>从用户输入URL，到浏览器呈现给用户页面，经历了什么过程？</h3><ol>
+<li>用户输入URL，浏览器获取到URL</li>
+<li>浏览器(应用层)进行DNS解析(如果输入的是IP地址，此步骤省略)</li>
+<li>根据解析出的IP地址+端口，浏览器(应用层)发起HTTP请求，请求中携带请求头(header)、请求体(body)</li>
+<li>请求到达传输层，tcp协议为传输报文提供可靠的字节流传输服务，它通过三次握手等手段来保证传输过程中的安全可靠。通过将大块数据分割成一个个报文段的方式传送大量数据</li>
+<li>到网络层，网络层通过ARP寻址得到接收方的Mac地址，IP协议把在传输层被分割的一个个数据包发给传送接收方。</li>
+<li>数据到达数据链路层，请求阶段完成。</li>
+<li>接收方在数据链路层收到数据包之后，层层传递到应用层，接收方应用程序就获得请求报文。</li>
+<li>接收方收到发送方的HTTP请求之后，进行请求文件资源（如HTML页面）的寻找并响应报文。</li>
+<li>发送方收到响应报文之后，如果报文中的状态码表示请求成功，则接受返回的资源，进行页面渲染。</li>
+</ol>
+<p><strong>header包含：</strong></p>
+<ol>
+<li>请求的方法（post、get、put）</li>
+<li>协议（http、https、ftp、smtp）</li>
+<li>目标url（具体的请求路径以及文件名）</li>
+<li>一些必要信息（缓存、cookie之类）</li>
+</ol>
+<p><strong>body包含：</strong></p>
+<ol>
+<li>请求的内容</li>
+</ol>
+<h2 id="页面的渲染"><a href="#页面的渲染" class="headerlink" title="页面的渲染"></a>页面的渲染</h2><p>当一个请求的发起和响应都完成之后，浏览器就会收到响应内容，但浏览器收到的是一串串的代码或URL链接，怎么把这些代码转换成用户可以看得懂的界面呈现出来，就是浏览器的工作了。</p>
+<ol>
+<li>浏览器通过HTMLParser根据深度遍历的原则把HTML解析成DOM Tree。</li>
+<li>将CSS解析成CSS Rule Tree(CSSOM Tree)。</li>
+<li>根据DOM树和CSSOM树来构造render Tree.</li>
+<li>layout：根据得到的render tree来计算所有节点在屏幕的位置。</li>
+<li>paint：遍历render树，并调用硬件图形API来绘制每个节点。</li>
+</ol>
+<h2 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h2><p>为了找到可优化的点，在此对页面渲染过程中几个关键步骤进行说明</p>
+<h3 id="HTML解析"><a href="#HTML解析" class="headerlink" title="HTML解析"></a>HTML解析</h3><p>HTML解析是浏览器的HTML解析器把HTML解析成dom tree，在解析过程中，浏览器根据HTML文件的结构从上到下解析html，HTML元素是以深度优先的方式解析，而script、link、style等标签会使解析过程产生阻塞，阻塞的情况有：</p>
+<ol>
+<li>外部样式会阻塞内部脚本的执行。</li>
+<li>外部样式和外部脚本并行加载，但外部样式会阻塞外部脚本执行。</li>
+<li>如果外部脚本async属性，则外部脚本的加载和执行不受外部样式的影响。</li>
+<li>如果link标签是动态创建，不管有无async属性，都不会阻塞外部脚本的加载与执行。</li>
+</ol>
+<h3 id="CSS解析"><a href="#CSS解析" class="headerlink" title="CSS解析"></a>CSS解析</h3><p>CSS Parser作用就是将很多个CSS文件中的样式合并解析出具有树形结构Style Rule，在对样式解析的过程中，默认CSS选择器是从右往左进行解析的。因为</p>
+<ol>
+<li>右边的tree复杂度要比左边的低。</li>
+<li>右边的tree公用样式重合度比左边低。</li>
+<li>右边的tree从根开始的节点要比左边的少。</li>
+</ol>
+<p>可能光看这几点没看出什么问题，但你要知道：浏览器中的css解析器负责css的解析，并为每个节点计算出样式，因此虽然css解析器要做的事情不多，但要每个节点都要进行遍历查找计算，计算量极大，因此解析的方式是决定其性能的关键点。</p>
+<h3 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h3><p>浏览器解析HTML时，当遇到<code>&lt;script&gt;</code>标签就会<strong>立即解析脚本</strong>，同时<strong>阻塞</strong>解析文档直到脚本执行完毕（你可能问为什么要这样设计，明显啊，脚本的执行是改变css和dom，会造成render tree不停的重绘和重排的），而当<code>&lt;script&gt;</code>是引入外部js文件时，会阻塞到js文件下载完成并且执行完成为止（除非加了defer或者async属性）。脚本在解析过程中<strong>将对dom或css的操作解析出来加入到DOM Tree和cssom中</strong>。</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="对于css"><a href="#对于css" class="headerlink" title="对于css"></a>对于css</h3><ol>
+<li>优化选择器路径：健全的css选择器固然是能让开发者看起来更清晰，然后对于css的解析来说却是一个很大的性能问题，因此相比于.a .b .c{}，更推荐写.c{}。</li>
+<li>压缩文件：尽可能压缩你的css文件大小，减少资源下载的负担。</li>
+<li>选择器合并：把有共同的属性内容的一系列选择器组合到一起，能压缩空间和资源开销。</li>
+<li>精准样式：尽可能减少不必要的属性设置，比如只要设置{padding-left: 10px},就要避免{padding: 0 0 0 10px}的写法。</li>
+<li>雪碧图：在合理的地方把一些小图标合并到一张图中，这样所有的图片只需要一次请求，然后所有的图片只需要一次请求，然后通过定位的方式获取相应的图标，这样就能一个图标一次请求的资源浪费。</li>
+<li>避免通配符：<code>.a .b *{}</code> 像这样的选择器，根据从右到左的解析顺序在解析过程中遇到通配符（*）回去遍历整个dom的，这样性能问题就大大的了。</li>
+<li>少用Float：Float在渲染时计算量比较大，尽量减少使用。</li>
+<li>0值去单位：对于为0的值，尽量不要加单位，增加兼容性。</li>
+</ol>
+<h3 id="对于HTML"><a href="#对于HTML" class="headerlink" title="对于HTML"></a>对于HTML</h3><ol>
+<li>避免在HTML中写入css代码。</li>
+<li>使用Viewport加速页面的渲染。</li>
+<li>使用语义化标签，减少css的代码，增加可读性和SEO。</li>
+<li>减少标签的使用，dom解析是一个大量遍历的过程，减少无必要的标签，能降低遍历的次数。</li>
+<li>避免src，href等的值为空。</li>
+<li>减少dns查询的次数。</li>
+</ol>
+<h3 id="对于JavaScript"><a href="#对于JavaScript" class="headerlink" title="对于JavaScript"></a>对于JavaScript</h3><ol>
+<li>尽可能把script标签放到body之后，避免页面需要等待js执行完成之后dom才能继续执行，最大程度保证页面能够展示出来。</li>
+<li>尽可能合并script代码。</li>
+<li>css能干的事情，尽量不要用JavaScript来干。毕竟JavaScript的解析执行过于直接和粗暴，而css效率更高。</li>
+<li>尽可能压缩的js文件，减少资源下载的负担。</li>
+<li>尽可能避免在js中逐条操作dom样式，尽可能与定义好css样式，然后通过改变样式名来修改dom样式，这样集中式的操作能减少reflow或repaint的次数。</li>
+<li>尽可能少的在js中创建dom，而是预先埋到HTML中用display:none来隐藏，在js中按需调用，减少js对dom的暴力操作。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WEB/" <i class="fafa-tag"></i> WEB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/11/Javascript Summary/" rel="next" title="summary">
+                <i class="fa fa-chevron-left"></i> summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/16/Vue-CLI/" rel="prev" title="Vue-CLI">
+                Vue-CLI <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/timg.jpeg"
+                alt="Chen" />
+            
+              <p class="site-author-name" itemprop="name">Chen</p>
+              <p class="site-description motion-element" itemprop="description">永远不知好歹 永远热泪盈眶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ZhangWeiC" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/zwchaha" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:scty8888@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB相关知识"><span class="nav-number">1.</span> <span class="nav-text">WEB相关知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TCP"><span class="nav-number">1.1.</span> <span class="nav-text">TCP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UDP"><span class="nav-number">1.2.</span> <span class="nav-text">UDP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#套接字socket"><span class="nav-number">1.3.</span> <span class="nav-text">套接字socket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URL"><span class="nav-number">1.5.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS"><span class="nav-number">1.6.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求发起和响应"><span class="nav-number">1.7.</span> <span class="nav-text">HTTP请求发起和响应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从用户输入URL，到浏览器呈现给用户页面，经历了什么过程？"><span class="nav-number">1.7.1.</span> <span class="nav-text">从用户输入URL，到浏览器呈现给用户页面，经历了什么过程？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面的渲染"><span class="nav-number">1.8.</span> <span class="nav-text">页面的渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端性能优化"><span class="nav-number">1.9.</span> <span class="nav-text">前端性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML解析"><span class="nav-number">1.9.1.</span> <span class="nav-text">HTML解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS解析"><span class="nav-number">1.9.2.</span> <span class="nav-text">CSS解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本执行"><span class="nav-number">1.9.3.</span> <span class="nav-text">脚本执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">1.10.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于css"><span class="nav-number">1.10.1.</span> <span class="nav-text">对于css</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于HTML"><span class="nav-number">1.10.2.</span> <span class="nav-text">对于HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于JavaScript"><span class="nav-number">1.10.3.</span> <span class="nav-text">对于JavaScript</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chen</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://chen.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/04/26/WEB相关知识/';
+          this.page.identifier = '2019/04/26/WEB相关知识/';
+          this.page.title = 'WEB相关知识';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chen.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
