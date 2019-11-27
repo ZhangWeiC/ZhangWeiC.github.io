@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小宸兄的博客">
 <meta property="og:description" content="koa–文档笔记应用程序Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的。 12345678const Koa = require(&apos;koa&apos;);const app = new Koa();app.use(async ctx =&amp;gt; &amp;#123;	ctx.body = &apos;Hellow World&apos;&amp;#125;);app.listen(3000); 级联Koa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-30T15:53:42.105Z">
+<meta property="og:updated_time" content="2019-06-16T08:47:45.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="koa--笔记">
 <meta name="twitter:description" content="koa–文档笔记应用程序Koa 应用程序是一个包含一组中间件函数的对象，它是按照类似堆栈的方式组织和执行的。 12345678const Koa = require(&apos;koa&apos;);const app = new Koa();app.use(async ctx =&amp;gt; &amp;#123;	ctx.body = &apos;Hellow World&apos;&amp;#125;);app.listen(3000); 级联Koa">
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  899
+                  959
                 </span>
               
 
@@ -480,6 +480,8 @@
 <h3 id="ctx-cookies-set-name-value-options"><a href="#ctx-cookies-set-name-value-options" class="headerlink" title="ctx.cookies.set(name, value, [options])"></a>ctx.cookies.set(name, value, [options])</h3><p>设置名为name，值为value的cookie。</p>
 <h3 id="ctx-throw-status-msg-properties"><a href="#ctx-throw-status-msg-properties" class="headerlink" title="ctx.throw([status], [msg], [properties])"></a>ctx.throw([status], [msg], [properties])</h3><p>默认抛出500的错误。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.throw(<span class="number">400</span>);</span><br><span class="line">ctx.throw(<span class="number">400</span>, <span class="string">'name required'</span>);</span><br><span class="line">ctx.throw(<span class="number">400</span>, <span class="string">'name required'</span>, &#123; <span class="attr">user</span>: user &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="ctx-assert-value-status-msg-properties"><a href="#ctx-assert-value-status-msg-properties" class="headerlink" title="ctx.assert(value, [status], [msg], [properties])"></a>ctx.assert(value, [status], [msg], [properties])</h3><h3 id="ctx-respond"><a href="#ctx-respond" class="headerlink" title="ctx.respond"></a>ctx.respond</h3><p>为了绕过 Koa 的内置 response 处理，你可以显式设置 ctx.respond = false;。注意，Koa _不_ 支持使用此功能。这可能会破坏 Koa 中间件和 Koa 本身的预期功能。</p>
+
       
     </div>
     
@@ -622,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -633,7 +635,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -644,7 +646,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -699,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koa–文档笔记"><span class="nav-number">1.</span> <span class="nav-text">koa–文档笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用程序"><span class="nav-number">1.1.</span> <span class="nav-text">应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#级联"><span class="nav-number">1.1.1.</span> <span class="nav-text">级联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-listen-…"><span class="nav-number">1.1.2.</span> <span class="nav-text">app.listen(…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-callback"><span class="nav-number">1.1.3.</span> <span class="nav-text">app.callback()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use-function"><span class="nav-number">1.1.4.</span> <span class="nav-text">app.use(function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-keys"><span class="nav-number">1.1.5.</span> <span class="nav-text">app.keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-context"><span class="nav-number">1.1.6.</span> <span class="nav-text">app.context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">1.1.7.</span> <span class="nav-text">错误处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文-Context"><span class="nav-number">1.2.</span> <span class="nav-text">上下文(Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-req"><span class="nav-number">1.2.1.</span> <span class="nav-text">ctx.req</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-res"><span class="nav-number">1.2.2.</span> <span class="nav-text">ctx.res</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-request"><span class="nav-number">1.2.3.</span> <span class="nav-text">ctx.request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-response"><span class="nav-number">1.2.4.</span> <span class="nav-text">ctx.response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-state"><span class="nav-number">1.2.5.</span> <span class="nav-text">ctx.state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-app-emit"><span class="nav-number">1.2.6.</span> <span class="nav-text">ctx.app.emit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-cookies-get-name-options"><span class="nav-number">1.2.7.</span> <span class="nav-text">ctx.cookies.get(name, [options])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-cookies-set-name-value-options"><span class="nav-number">1.2.8.</span> <span class="nav-text">ctx.cookies.set(name, value, [options])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-throw-status-msg-properties"><span class="nav-number">1.2.9.</span> <span class="nav-text">ctx.throw([status], [msg], [properties])</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koa–文档笔记"><span class="nav-number">1.</span> <span class="nav-text">koa–文档笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#应用程序"><span class="nav-number">1.1.</span> <span class="nav-text">应用程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#级联"><span class="nav-number">1.1.1.</span> <span class="nav-text">级联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-listen-…"><span class="nav-number">1.1.2.</span> <span class="nav-text">app.listen(…)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-callback"><span class="nav-number">1.1.3.</span> <span class="nav-text">app.callback()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use-function"><span class="nav-number">1.1.4.</span> <span class="nav-text">app.use(function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-keys"><span class="nav-number">1.1.5.</span> <span class="nav-text">app.keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-context"><span class="nav-number">1.1.6.</span> <span class="nav-text">app.context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理"><span class="nav-number">1.1.7.</span> <span class="nav-text">错误处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文-Context"><span class="nav-number">1.2.</span> <span class="nav-text">上下文(Context)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-req"><span class="nav-number">1.2.1.</span> <span class="nav-text">ctx.req</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-res"><span class="nav-number">1.2.2.</span> <span class="nav-text">ctx.res</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-request"><span class="nav-number">1.2.3.</span> <span class="nav-text">ctx.request</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-response"><span class="nav-number">1.2.4.</span> <span class="nav-text">ctx.response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-state"><span class="nav-number">1.2.5.</span> <span class="nav-text">ctx.state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-app-emit"><span class="nav-number">1.2.6.</span> <span class="nav-text">ctx.app.emit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-cookies-get-name-options"><span class="nav-number">1.2.7.</span> <span class="nav-text">ctx.cookies.get(name, [options])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-cookies-set-name-value-options"><span class="nav-number">1.2.8.</span> <span class="nav-text">ctx.cookies.set(name, value, [options])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-throw-status-msg-properties"><span class="nav-number">1.2.9.</span> <span class="nav-text">ctx.throw([status], [msg], [properties])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-assert-value-status-msg-properties"><span class="nav-number">1.2.10.</span> <span class="nav-text">ctx.assert(value, [status], [msg], [properties])</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-respond"><span class="nav-number">1.2.11.</span> <span class="nav-text">ctx.respond</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
