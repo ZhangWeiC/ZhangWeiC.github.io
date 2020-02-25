@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[面试--原型链]]></title>
+    <url>%2F2020%2F02%2F25%2F%E9%9D%A2%E8%AF%95--%E5%8E%9F%E5%9E%8B%E9%93%BE%2F</url>
+    <content type="text"><![CDATA[原型链涉及的问题 创建对象有几种方法 原型、构造函数、实例、原型链 instanceOf原理 new运算符 创建对象有几种方法 字面量创建 构造函数创建 Object.create() 12345678var o1 = &#123;name: 'value'&#125;;var o2 = new Object(&#123;name: 'value'&#125;);var M = function() &#123;this.name = 'o3'&#125;;var o3 = new M();var P = &#123;name: 'o4'&#125;;var o4 = Object.create(P) 原型、构造函数、实例、原型链四者之间的关系 JavaScript 的所有对象中都包含了一个 __proto__ 内部属性，这个属性的值就是该对象的原型 JavaScript 的函数对象，除了原型 __proto__ 之外，还有一个 prototype 属性 当函数对象作为构造函数创建实例时，其prototype属性值将被作为实例对象的原型 __proto__ 原型链原型链是通过对象的__proto__连接的；一个对象在查找一个方法或属性时，他会先在自己的对象上去找，找不到时，他会沿着原型链依次向上查找。 注意： 函数才有prototype，实例对象只有__proto__， 而函数有__proto__是因为函数是Function的实例对象。 instanceOf原理判断实例对象的__proto__属性与构造函数的prototype是不是用一个引用。如果不是，他会沿着对象的__proto__向上查找的，直到顶端Object。 12345678910111213function myInstanceOf(left, right) &#123; let rightProto = right.prototype left = left.__proto__ while(true) &#123; if(left === null)&#123; return false &#125; if(left === rightProto)&#123; return true &#125; left = left.__proto__ &#125;&#125; new运算符12345678910function myNew(fn) &#123; var o = Object.create(fn.prototype) var k = fn.call(o) if(typeof k === 'object') &#123; return k &#125; else &#123; return o &#125;&#125;]]></content>
+      <categories>
+        <category>面试准备</category>
+      </categories>
+      <tags>
+        <tag>面试准备</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[面试--类型转换]]></title>
     <url>%2F2020%2F02%2F24%2F%E9%9D%A2%E8%AF%95--%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%2F</url>
     <content type="text"><![CDATA[类型转换涉及的问题 数据类型 显式类型转换 隐式类型转换 数据类型基础类型6种：number、string、boolean、null、undefined、symbol 引用类型：对象、函数、数组 显式类型转换 Number() 函数 数值：转换后还是原来的值 字符串：如果可以被解析为数值则转化为数值，否则转换为NaN，空字符串转换为0 布尔值：true转为1；false转为0 undefined：转为NaN null：转为0 对象： 调用对象自身的valueOf方法，如果返回值是基础类型，调用Number方法 如果返回值不是基础类型调用对象自身的toString方法，再调用Number方法 String() 函数 数值：转换为相应的字符串 字符串：转换后还是原来的值 布尔值：true转为’true’；false转为’false’ undefined：转为’undefined’ null：转为’null’ 对象： 调用对象自身的toString方法，如果返回值是基础类型，调用Number方法 如果返回值不是基础类型调用对象自身的valueOf方法，再调用Number方法 Boolean() 函数 +0、-0、’’、undefined、null、NaN转化为false 其余转换成true]]></content>
