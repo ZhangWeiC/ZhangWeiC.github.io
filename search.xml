@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[面试--类型转换]]></title>
+    <url>%2F2020%2F02%2F24%2F%E9%9D%A2%E8%AF%95--%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%2F</url>
+    <content type="text"><![CDATA[类型转换涉及的问题 数据类型 显式类型转换 隐式类型转换 数据类型基础类型6种：number、string、boolean、null、undefined、symbol 引用类型：对象、函数、数组 显式类型转换 Number() 函数 数值：转换后还是原来的值 字符串：如果可以被解析为数值则转化为数值，否则转换为NaN，空字符串转换为0 布尔值：true转为1；false转为0 undefined：转为NaN null：转为0 对象： 调用对象自身的valueOf方法，如果返回值是基础类型，调用Number方法 如果返回值不是基础类型调用对象自身的toString方法，再调用Number方法 String() 函数 数值：转换为相应的字符串 字符串：转换后还是原来的值 布尔值：true转为’true’；false转为’false’ undefined：转为’undefined’ null：转为’null’ 对象： 调用对象自身的toString方法，如果返回值是基础类型，调用Number方法 如果返回值不是基础类型调用对象自身的valueOf方法，再调用Number方法 Boolean() 函数 +0、-0、’’、undefined、null、NaN转化为false 其余转换成true]]></content>
+      <categories>
+        <category>面试准备</category>
+      </categories>
+      <tags>
+        <tag>面试准备</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[面试--CSS盒模型]]></title>
     <url>%2F2020%2F02%2F23%2F%E9%9D%A2%E8%AF%95--CSS%E7%9B%92%E6%A8%A1%E5%9E%8B%2F</url>
     <content type="text"><![CDATA[CSS盒模型涉及的问题(由浅入深) 基本概念：标准模型+IE模型 标准模型和IE模型的区别 CSS如何设置这两种模型 JS如何设置盒模型对应的宽和高 根据盒模型解释边距重叠 BFC、IFC 基本概念：标准模型+IE模型 标准模型：width = width IE模型：width = width + padding + border 标准盒模型和IE模型的区别标准模型的宽高是指的content区宽高； IE盒模型的宽高是指的content+padding+border的宽高 CSS如何设置这两种模型 标准模型：box-sizing: content-box IE模型：box-sizing: border-box JS如何设置盒模型对应的宽和高 dom.style.width/height 只能获取到内联样式的宽和高 dom.currentStyle.width/height 能正常获取样式，但仅限于IE浏览器 window.getComputedStyle(dom).width/height 能正常获取宽高，不限浏览器 dom.getBoundingClientRect().width/height 获取绝对位置，不限浏览器 根据盒模型解释外边距重叠当两个或者更多的垂直外边距相遇时，它们将形成一个外边距，这个外边距的高度等于两个发生叠加的外边距中高度较大者。 外边距重叠只会发生在普通文档流的垂直方向，行内框、浮动框、绝对定位框之间的外边距不会发生叠加，同样水平方向也不会发生叠加。 兄弟节点 父子节点 两个空元素 一个空元素，一个非空元素 BFC块级格式化上下文，它是一个独立的渲染区域，区域内外互不干扰 BFC特点 BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素 计算BFC的高度，浮动元素也参与计算 属于同一个BFC的两个相邻的子元素margin会发生重叠；分属于不同的BFC时，可以阻止margin重叠 BFC的区域不会与浮动区域重叠 如何创造一个BFC display等于inline-block、table-cell、table-caption float不等于none overflow不为visible position等于absolute或者fixed]]></content>
