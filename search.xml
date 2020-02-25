@@ -12,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[面试--面向对象]]></title>
+    <url>%2F2020%2F02%2F25%2F%E9%9D%A2%E8%AF%95--%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[面向对象涉及的问题 类与实例 类的声明 生成实例 类与继承 如何实现继承 继承的几种方式 类的声明1234567891011// 普通写法function Animal() &#123; this.name = 'name'&#125;// ES6class Animal2 &#123; constructor () &#123; this.name = 'name'; &#125;&#125; 类的继承构造函数法在构造函数中 使用Parent.call(this)的方法继承父类属性。 原理： 将子类的this使用父类的构造函数跑一遍 缺点： Parent原型链上的属性和方法并不会被子类继承 1234567function Parent()&#123; this.parent = 'parent'&#125;function Child()&#123; Parent.call(this) this.child = 'child' &#125; 原型链原理：把子类的prototype（原型对象）直接设置为父类的实例 缺点：因为子类只进行一次原型更改，所以子类的所有实例保存的是同一个父类的值。 123456789101112function Parent() &#123; this.parent = 'parent' this.arr = [1, 2, 3]&#125;function Child() &#123; this.type = 'child'&#125;Child.prototype = new Parent()var c1 = new Child()var c2 = new Child()c1.__proto__ === c2.__proto__ //true 组合继承方式原理： 子类构造函数中使用Parent.call(this);的方式可以继承写在父类构造函数中this上绑定的各属性和方法；使用Child.prototype = new Parent()的方式可以继承挂在在父类原型上的各属性和方法 缺点：父类构造函数在子类构造函数中执行了一次，在子类绑定原型时又执行了一次 123456789function Parent() &#123; this.parent = 'parent' this.arr = [1, 2, 3]&#125;function Child() &#123; Parent.call(this) this.type = 'child'&#125;Child.prototype = new Parent() 组合继承方式-优化1因为这时父类构造函数的方法已经被执行过了，只需要关心原型链上的属性和方法了 12345678910function Parent() &#123; this.parent = 'parent' this.arr = [1, 2, 3]&#125;function Child() &#123; Parent.call(this) this.type = 'child'&#125;Child.prototype = Parent.prototype; 缺点：因为原型上有一个属性为constructor，此时直接使用父类的prototype的话那么会导致实例的constructor为Parent，即不能区分这个实例对象是Child的实例还是父类的实例对象。 组合继承方式-优化2-添加中间对象1234567891011function Parent() &#123; this.parent = 'parent' this.arr = [1, 2, 3]&#125;function Child() &#123; Parent.call(this) this.type = 'child'&#125;Child.prototype = Object.create(Parent.prototype)Child.prototype.constructor = Child]]></content>
+      <categories>
+        <category>面试准备</category>
+      </categories>
+      <tags>
+        <tag>面试准备</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[面试--类型转换]]></title>
     <url>%2F2020%2F02%2F24%2F%E9%9D%A2%E8%AF%95--%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%2F</url>
     <content type="text"><![CDATA[类型转换涉及的问题 数据类型 显式类型转换 隐式类型转换 数据类型基础类型6种：number、string、boolean、null、undefined、symbol 引用类型：对象、函数、数组 显式类型转换 Number() 函数 数值：转换后还是原来的值 字符串：如果可以被解析为数值则转化为数值，否则转换为NaN，空字符串转换为0 布尔值：true转为1；false转为0 undefined：转为NaN null：转为0 对象： 调用对象自身的valueOf方法，如果返回值是基础类型，调用Number方法 如果返回值不是基础类型调用对象自身的toString方法，再调用Number方法 String() 函数 数值：转换为相应的字符串 字符串：转换后还是原来的值 布尔值：true转为’true’；false转为’false’ undefined：转为’undefined’ null：转为’null’ 对象： 调用对象自身的toString方法，如果返回值是基础类型，调用Number方法 如果返回值不是基础类型调用对象自身的valueOf方法，再调用Number方法 Boolean() 函数 +0、-0、’’、undefined、null、NaN转化为false 其余转换成true]]></content>
