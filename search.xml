@@ -12,6 +12,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[面试--HTTP协议类]]></title>
+    <url>%2F2020%2F02%2F24%2F%E9%9D%A2%E8%AF%95--HTTP%E5%8D%8F%E8%AE%AE%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[HTTP协议所涉及的问题 HTTP协议的主要特点 HTTP报文的组成部分 HTTP方法 POST和GET的区别 HTTP状态码 什么是持久化连接 什么是管线化 HTTP协议的主要特点 无连接 限制每次连接只处理一个请求 无状态 协议对于事务处理没有记忆能力 灵活 HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记 简单快速 客户向服务器请求服务时，只需传送请求方法和路径 HTTP报文的组成部分 请求报文 请求行 请求类型 要访问的资源 HTTP协议版本号 请求头 用来说明服务器要使用的附加信息（一些键值对） 例如：User-Agent、 Accept、Content-Type、Connection 空行 分割请求头和请求体的 请求体 请求的内容部分 响应报文 状态行 状态码 状态消息 HTTP协议版本号 响应头 说明客户端要使用的一些附加信息 如：Content-Type、charset、响应的时间 空行 响应正文 返回给客户端的文本信息 HTTP方法 GET 获取资源 POST 传输资源 PUT 更新资源 DELETE 删除资源 HEAD 获取报文首部 POST和GET的区别 GET在浏览器回退时是无害的，而POST会再次提交 GET请求能缓存，POST不能 POST相对GET相对安全一些，因为GET请求都包含在URL中，而且会被浏览器保存记录，POST不会。 POST 可以通过 request body来传输比 GET 更多的数据 URL有长度限制，会影响 GET 请求，但是这个长度限制是浏览器规定的 POST 支持更多的编码类型且不对数据类型限制；GET只支持URL编码 HTTP状态码1XX 提示信息：表示请求已接收，继续处理 2XX 成功： 200 OK 204 No content，表示请求成功，但响应报文不含实体的主体部分 206 Partial Content，进行范围请求 3XX 重定向 301 永久性重定向，表示资源已被分配了新的 URL 302 临时性重定向，表示资源临时被分配了新的 URL 304 not modify，重定位到浏览器。 4XX 客户端错误 404 not found，在服务器上没有找到请求的资源 403 forbidden，表示对请求资源的访问被服务器拒绝 400 bad request，请求报文存在语法错误 401 Unanthorized，未授权，表示发送的请求需要有通过 HTTP 认证的认证信息 5XX 服务端错误 500 Internal Server Error，服务器内部错误 503 Service Unavailable，服务器不可用 什么是持久化连接(HTTP1.1以上支持)HTTP协议采用“请求-应答”模式，并且HTTP是基于TCP进行连接的。普通模式（非keep-alive）时，每个请求或应答都需要建立一个连接，完成之后立即断开。 当使用Connection: keep-alive模式（又称持久连接、连接重用）时，keep-alive使客户端道服务器端连接持续有效，即不关闭底层的TCP连接，当出现对服务器的后继请求时，keep-alive功能避免重新建立连接。 什么是管线化(HTTP1.1以上支持) 管线化后，请求和响应不再是依次交替的了。他可以支持一次性发送多个请求，并一次性接收多个响应。 注意： 只有GET与HEAD请求可以进行管线化，POST有限制 初次创建连接时不应该启动管线机制，因为服务器不一定支持该协议]]></content>
+      <categories>
+        <category>面试准备</category>
+      </categories>
+      <tags>
+        <tag>面试准备</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[面试--CSS盒模型]]></title>
     <url>%2F2020%2F02%2F23%2F%E9%9D%A2%E8%AF%95--CSS%E7%9B%92%E6%A8%A1%E5%9E%8B%2F</url>
     <content type="text"><![CDATA[CSS盒模型涉及的问题(由浅入深) 基本概念：标准模型+IE模型 标准模型和IE模型的区别 CSS如何设置这两种模型 JS如何设置盒模型对应的宽和高 根据盒模型解释边距重叠 BFC、IFC 基本概念：标准模型+IE模型 标准模型：width = width IE模型：width = width + padding + border 标准盒模型和IE模型的区别标准模型的宽高是指的content区宽高； IE盒模型的宽高是指的content+padding+border的宽高 CSS如何设置这两种模型 标准模型：box-sizing: content-box IE模型：box-sizing: border-box JS如何设置盒模型对应的宽和高 dom.style.width/height 只能获取到内联样式的宽和高 dom.currentStyle.width/height 能正常获取样式，但仅限于IE浏览器 window.getComputedStyle(dom).width/height 能正常获取宽高，不限浏览器 dom.getBoundingClientRect().width/height 获取绝对位置，不限浏览器 根据盒模型解释外边距重叠当两个或者更多的垂直外边距相遇时，它们将形成一个外边距，这个外边距的高度等于两个发生叠加的外边距中高度较大者。 外边距重叠只会发生在普通文档流的垂直方向，行内框、浮动框、绝对定位框之间的外边距不会发生叠加，同样水平方向也不会发生叠加。 兄弟节点 父子节点 两个空元素 一个空元素，一个非空元素 BFC块级格式化上下文，它是一个独立的渲染区域，区域内外互不干扰 BFC特点 BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素 计算BFC的高度，浮动元素也参与计算 属于同一个BFC的两个相邻的子元素margin会发生重叠；分属于不同的BFC时，可以阻止margin重叠 BFC的区域不会与浮动区域重叠 如何创造一个BFC display等于inline-block、table-cell、table-caption float不等于none overflow不为visible position等于absolute或者fixed]]></content>
