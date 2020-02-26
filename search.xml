@@ -12,17 +12,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[面试--安全类]]></title>
-    <url>%2F2020%2F02%2F26%2F%E9%9D%A2%E8%AF%95--%E5%AE%89%E5%85%A8%E7%B1%BB%2F</url>
-    <content type="text"><![CDATA[安全类涉及的问题 CSRF XSS CSRF 跨站请求伪造 简述：打开同一浏览器时其他的网站对本网站造成的影响。 CSRF 攻击原理原理 用户登录A网站 A网站确认身份（给客户端cookie） B网站页面向A网站发起请求（带上A网站身份） eg：用户同时打开了A网站和钓鱼网站。 假设A网站中有一个通过 GET 请求提交用户评论的接口，那么攻击者就可以在钓鱼网站中加入一个图片，图片的地址就是评论接口。 1&lt;img src="http://www.domain.com/xxx?comment='attack'"/&gt; CSRF防御 Get 请求不对数据进行修改 不让第三方网站访问到用户 Cookie 阻止第三方网站请求接口 请求时附带验证信息，比如验证码或者 Token XSS 跨站脚本攻击原理：XSS ( Cross Site Scripting ) 是指恶意攻击者利用网站没有对用户提交数据进行转义处理或者过滤不足的缺点，进而添加一些代码，嵌入到web页面中去。使别的用户访问都会执行相应的嵌入代码。 XSS攻击的危害包括 获取页面数据 获取cookie 劫持前端逻辑 偷取网站任意数据 偷取用户密码 XSS攻击分类反射型通过url参数直接注入。 发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务端解析后返回，XSS代码随响应内容一起传回给浏览器，最后浏览器执行XSS代码。这个过程像一次反射，故叫做反射型XSS。 例子：一个链接，里面的query字段中包含一个script标签，这个标签的src就是恶意代码，用户点击了这个链接后会先向服务器发送请求，服务器返回时也携带了这个XSS代码，然后浏览器将查询的结果写入Html，这时恶意代码就被执行了。 存储型存储型XSS会被保存到数据库，在其他用户访问（前端）到这条数据时，这个代码会在访问用户的浏览器端执行。 例子：比如攻击者在一篇文章的评论中写入了script标签，这个评论被保存数据库，当其他用户看到这篇文章时就会执行这个脚本。 XSS防御 普通的输入 - 编码 对用户输入数据进行HTML Entity编码（使用转义字符） “ &amp; &lt; > 空格 富文本 - 过滤（黑名单、白名单） 移除上传的DOM属性，如onerror等 移除用户上传的style节点、script节点、iframe节点等 较正 避免直接对HTML Entity解码 使用DOM Parse转换，校正不配对的DOM标签和属性]]></content>
-      <categories>
-        <category>面试准备</category>
-      </categories>
-      <tags>
-        <tag>面试准备</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[面试--原型链]]></title>
     <url>%2F2020%2F02%2F25%2F%E9%9D%A2%E8%AF%95--%E5%8E%9F%E5%9E%8B%E9%93%BE%2F</url>
     <content type="text"><![CDATA[原型链涉及的问题 创建对象有几种方法 原型、构造函数、实例、原型链 instanceOf原理 new运算符 创建对象有几种方法 字面量创建 构造函数创建 Object.create() 12345678var o1 = &#123;name: 'value'&#125;;var o2 = new Object(&#123;name: 'value'&#125;);var M = function() &#123;this.name = 'o3'&#125;;var o3 = new M();var P = &#123;name: 'o4'&#125;;var o4 = Object.create(P) 原型、构造函数、实例、原型链四者之间的关系 JavaScript 的所有对象中都包含了一个 __proto__ 内部属性，这个属性的值就是该对象的原型 JavaScript 的函数对象，除了原型 __proto__ 之外，还有一个 prototype 属性 当函数对象作为构造函数创建实例时，其prototype属性值将被作为实例对象的原型 __proto__ 原型链原型链是通过对象的__proto__连接的；一个对象在查找一个方法或属性时，他会先在自己的对象上去找，找不到时，他会沿着原型链依次向上查找。 注意： 函数才有prototype，实例对象只有__proto__， 而函数有__proto__是因为函数是Function的实例对象。 instanceOf原理判断实例对象的__proto__属性与构造函数的prototype是不是用一个引用。如果不是，他会沿着对象的__proto__向上查找的，直到顶端Object。 12345678910111213function myInstanceOf(left, right) &#123; let rightProto = right.prototype left = left.__proto__ while(true) &#123; if(left === null)&#123; return false &#125; if(left === rightProto)&#123; return true &#125; left = left.__proto__ &#125;&#125; new运算符12345678910function myNew(fn) &#123; var o = Object.create(fn.prototype) var k = fn.call(o) if(typeof k === 'object') &#123; return k &#125; else &#123; return o &#125;&#125;]]></content>
