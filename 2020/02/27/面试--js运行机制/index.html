@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="小宸兄的博客">
 <meta property="og:description" content="js运行机制涉及的问题  JavaScript单线程 同步/异步任务 任务队列 事件循环   JavaScript单线程JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2020/02/27/面试--js运行机制/xunhuan.png">
-<meta property="og:updated_time" content="2020-02-27T11:40:11.514Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/面试--js运行机制/xunhuan.jpg">
+<meta property="og:updated_time" content="2020-02-27T11:43:34.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试--js运行机制">
 <meta name="twitter:description" content="js运行机制涉及的问题  JavaScript单线程 同步/异步任务 任务队列 事件循环   JavaScript单线程JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/27/面试--js运行机制/xunhuan.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/27/面试--js运行机制/xunhuan.jpg">
 
 
 
@@ -476,7 +476,7 @@
 <li>当前宏任务执行完毕，开始检查渲染，然后GUI线程接管渲染</li>
 <li>渲染完毕后，JS线程继续接管，开始下一个宏任务（从事件队列中获取）</li>
 </ul>
-<p><img src="/2020/02/27/面试--js运行机制/xunhuan.png" alt="xunhuan.png"></p>
+<p><img src="/2020/02/27/面试--js运行机制/xunhuan.jpg" alt="xunhuan.png"></p>
 <h3 id="Promise和async中的立即执行"><a href="#Promise和async中的立即执行" class="headerlink" title="Promise和async中的立即执行"></a>Promise和async中的立即执行</h3><p>我们知道Promise中的异步体现在<code>then</code>和<code>catch</code>中，所以写在Promise中的代码是被当做同步任务立即执行的。</p>
 <p>而在async/await中，在出现await出现之前，其中的代码也是立即执行的。</p>
 <h3 id="遇到await情况"><a href="#遇到await情况" class="headerlink" title="遇到await情况"></a>遇到await情况</h3><p>await是一个让出线程的标志。<strong>await后面的表达式会先执行，并将await下面的代码加入到microtask中，</strong>然后就会跳出整个async函数来执行后面的代码。</p>
