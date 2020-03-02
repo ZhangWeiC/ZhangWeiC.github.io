@@ -87,10 +87,16 @@
 <meta property="og:site_name" content="小宸兄的博客">
 <meta property="og:description" content="页面性能涉及的问题  提升页面性能的方法有哪些   提升页面性能的方法有哪些 资源压缩合并，减少HTTP请求 非核心代码异步加载 利用浏览器缓存 使用CDN 预解析DNS  12&amp;lt;meta http-equiv=&quot;x-dns-prefetch-control&quot; control=&quot;on&quot;&amp;gt;&amp;lt;link rel=&quot;dns-prefetch&quot; href=&quot;//host_name_to_p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-28T04:54:32.858Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/28/面试--页面性能类/huancun.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/28/面试--页面性能类/cacheControl.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/28/面试--页面性能类/xieshang.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/28/面试--页面性能类/xieshang1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/28/面试--页面性能类/jizhi.jpg">
+<meta property="og:updated_time" content="2020-03-02T01:13:45.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试--页面性能类">
 <meta name="twitter:description" content="页面性能涉及的问题  提升页面性能的方法有哪些   提升页面性能的方法有哪些 资源压缩合并，减少HTTP请求 非核心代码异步加载 利用浏览器缓存 使用CDN 预解析DNS  12&amp;lt;meta http-equiv=&quot;x-dns-prefetch-control&quot; control=&quot;on&quot;&amp;gt;&amp;lt;link rel=&quot;dns-prefetch&quot; href=&quot;//host_name_to_p">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/28/面试--页面性能类/huancun.png">
 
 
 
@@ -401,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  256
+                  2,467
                 </span>
               
 
@@ -417,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  9
                 </span>
               
             </div>
@@ -482,6 +488,86 @@
 </ul>
 </li>
 </ol>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="缓存相关"><a href="#缓存相关" class="headerlink" title="缓存相关"></a>缓存相关</h3><h4 id="缓存过程分析"><a href="#缓存过程分析" class="headerlink" title="缓存过程分析"></a>缓存过程分析</h4><p>浏览器与服务器通信的方式为应答模式，即是：浏览器发起HTTP请求 – 服务器响应该请求，<strong>那么浏览器怎么确定一个资源该不该缓存，如何去缓存呢？</strong>浏览器第一次向服务器发起该请求后拿到请求结果后，将请求结果和缓存标识存入浏览器缓存，<strong>浏览器对于缓存的处理是根据第一次请求资源时返回的响应头来确定的。</strong>具体过程如下图：</p>
+<p><img src="/2020/02/28/面试--页面性能类/huancun.png" alt="huancun.png"></p>
+<p>由上图我们可以知道：</p>
+<ul>
+<li>浏览器每次发请求，都会先在浏览器缓存中去查找该请求的结果和缓存标示</li>
+<li>浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中</li>
+</ul>
+<h4 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h4><p><strong>强缓存：不会向服务器发送请求，直接从缓存中读取资源。强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。</strong></p>
+<p><strong>Expires：</strong></p>
+<p><strong>缓存过期时间，用来指定资源到期的时间，是服务器端的具体的时间点。</strong>也就是说，Expires=max-age + 请求时间，需要和Last-modified结合使用。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。</p>
+<p><strong>Expires 是 HTTP/1 的产物，受限于本地时间，如果修改了本地时间，可能会造成缓存失效。</strong><code>Expires: Wed, 22 Oct 2018 08:41:00 GMT</code>表示资源会在 Wed, 22 Oct 2018 08:41:00 GMT 后过期，需要再次请求。</p>
+<p><strong>Cache-Control：</strong> </p>
+<p>在HTTP/1.1中，Cache-Control是最重要的规则，主要用于控制网页缓存。。比如当<code>Cache-Control:max-age=300</code>时，则代表在这个请求正确返回时间（浏览器也会记录下来）的5分钟内再次加载资源，就会命中强缓存。</p>
+<p>Cache-Control 可以在请求头或者响应头中设置，并且可以组合使用多种指令：</p>
+<ul>
+<li><p><strong>public：所有内容都将被缓存（客户端和代理服务器都可缓存）。</strong>具体来说响应可被任何中间节点缓存，如 Browser &lt;– proxy1 &lt;– proxy2 &lt;– Server，中间的proxy可以缓存资源，比如下次再请求同一资源proxy1直接把自己缓存的东西给 Browser 而不再向proxy2要。</p>
+</li>
+<li><p><strong>private：所有内容只有客户端可以缓存。</strong>Cache-Control的默认取值。具体来说，表示中间节点不允许缓存，对于Browser &lt;– proxy1 &lt;– proxy2 &lt;– Server，proxy2 会老老实实把Server 返回的数据发送给proxy1,自己不缓存任何数据。当下次Browser再次请求时proxy会做好请求转发而不是自作主张给自己缓存的数据。</p>
+</li>
+<li><p><strong>no-cache：客户端缓存内容，是否使用缓存则需要经过协商缓存来验证决定。</strong>表示不使用 Cache-Control的缓存控制方式做前置验证，而是使用 Etag 或者Last-Modified字段来控制缓存。<strong>需要注意的是，no-cache这个名字有一点误导。设置了no-cache之后，并不是说浏览器就不再缓存数据，只是浏览器在使用缓存数据时，需要先确认一下数据是否还跟服务器保持一致。</strong></p>
+</li>
+<li><p><strong>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存。</strong></p>
+</li>
+<li><p><strong>max-age：max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效。</strong></p>
+</li>
+<li><p><strong>s-maxage（单位为s)：同max-age作用一样，不过只在代理服务器中生效（比如CDN缓存）。</strong>比如当s-maxage=60时，在这60秒中，即使更新了CDN的内容，浏览器也不会进行请求。max-age用于普通缓存，而s-maxage用于代理缓存。<strong>s-maxage的优先级高于max-age。</strong>如果存在s-maxage，则会覆盖掉max-age和Expires header。</p>
+</li>
+<li><p><strong>max-stale：能容忍的最大过期时间，</strong>max-stale指令标示了客户端愿意接收一个已经过期了的响应。如果指定了max-stale的值，则最大容忍时间为对应的秒数。如果没有指定，那么说明浏览器愿意接收任何age的响应（age表示响应由源站生成或确认的时间与当前时间的差值）。</p>
+</li>
+<li><p><strong>min-fresh：能够容忍的最小新鲜度。</strong>min-fresh标示了客户端不愿意接受新鲜度小于当前的age加上min-fresh设定的时间之和的响应。</p>
+</li>
+</ul>
+<p><img src="/2020/02/28/面试--页面性能类/cacheControl.jpg" alt="cacheControl.jpg"></p>
+<p>我们可以将多个指令配合起来一起使用，达到多个目的。比如说我们希望资源能被缓存下来，并且是客户端和代理服务器都能缓存，还能设置缓存失效时间等等。</p>
+<h4 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h4><p><strong>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程，主要有以下两种情况：</strong></p>
+<ul>
+<li>协商缓存生效，返回304和Not Modified</li>
+</ul>
+<p><img src="/2020/02/28/面试--页面性能类/xieshang.jpg" alt="xieshang.jpg"></p>
+<ul>
+<li>协商缓存失效，返回200和请求结果</li>
+</ul>
+<p><img src="/2020/02/28/面试--页面性能类/xieshang1.jpg" alt="xieshang1.jpg"></p>
+<p><strong>Last-Modified和If-Modified-Since</strong></p>
+<p>浏览器在第一次访问资源时，服务器返回资源的同时，在response header中添加 Last-Modified的header，值是这个资源在服务器上的最后修改时间，浏览器接收后缓存文件和header；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Last-Modified: Fri, 22 Jul 2016 01:47:00 GMT</span><br></pre></td></tr></table></figure>
+<p>浏览器下一次请求这个资源，浏览器检测到有 Last-Modified这个header，于是添加If-Modified-Since这个header，值就是Last-Modified中的值；服务器再次收到这个资源请求，会根据 If-Modified-Since 中的值与服务器中这个资源的最后修改时间对比，如果没有变化，返回304和空的响应体，直接从缓存读取，如果If-Modified-Since的时间小于服务器中这个资源的最后修改时间，说明文件有更新，于是返回新的资源文件和200。</p>
+<p><strong>Last-Modified 弊端</strong></p>
+<ul>
+<li>如果本地打开缓存文件，即使没有对文件进行修改，但还是会造成 Last-Modified 被修改，服务端不能命中缓存导致发送相同的资源。</li>
+<li>因为 Last-Modified 只能以秒计时，如果在不可感知的时间内修改完成文件，那么服务端会认为资源还是命中了，不会返回正确的资源。</li>
+</ul>
+<p><strong>ETag和If-None-Match</strong></p>
+<p><strong>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)，只要资源有变化，Etag就会重新生成</strong>浏览器在下一次加载资源向服务器发送请求时，会将上一次返回的Etag值放到request header里的If-None-Match里，服务器只需要比较客户端传来的If-None-Match跟自己服务器上该资源的ETag是否一致，就能很好地判断资源相对客户端而言是否被修改过了。</p>
+<p><strong>二者对比</strong></p>
+<ul>
+<li>首先在精确度上，Etag要优于Last-Modified。</li>
+<li>第二在性能上，Etag要逊于Last-Modified，毕竟Last-Modified只需要记录时间，而Etag需要服务器通过算法来计算出一个hash值。</li>
+<li>第三在优先级上，服务器校验优先考虑Etag。</li>
+</ul>
+<h4 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h4><p>综上，缓存机制如下：</p>
+<ol>
+<li>浏览器判断是否有缓存。</li>
+<li>如有缓存判断强缓存是否失效，若无缓存浏览器则向服务器发出请求，并将请求结果和缓存标示存入缓存。</li>
+<li>如果强缓存未失效，则读取缓存加载页面；若强缓存失效，携带缓存标示向浏览器发请求。</li>
+<li>服务器根据缓存标示判断缓存是否有效，若有效返回304表示缓存有效，浏览器读取缓存渲染页面。</li>
+<li>若缓存已过期，重新返回资源和缓存标示符，并将其存入缓存中。</li>
+</ol>
+<p><img src="/2020/02/28/面试--页面性能类/jizhi.jpg" alt="jizhi.jpg"></p>
+<p><strong>注意：如果什么缓存策略都没设置，浏览器会采用一个启发式的算法，通常会取响应头中的 Date 减去 Last-Modified 值的 10% 作为缓存时间。</strong></p>
+<h4 id="实际场景应用缓存策略"><a href="#实际场景应用缓存策略" class="headerlink" title="实际场景应用缓存策略"></a>实际场景应用缓存策略</h4><p><strong>频繁变动的资源</strong></p>
+<blockquote>
+<p>Cache-Control: no-cache</p>
+</blockquote>
+<p>对于频繁变动的资源，首先需要使用<code>Cache-Control: no-cache</code>使浏览器每次都请求服务器，然后配合 ETag 或者 Last-Modified 来验证资源是否有效。</p>
+<p><strong>不常变化的资源</strong></p>
+<blockquote>
+<p>Cache-Control: max-age=31536000</p>
+</blockquote>
+<p>通常在处理这类资源时，给它们的 Cache-Control 配置一个很大的 <code>max-age=31536000</code> (一年)，这样浏览器之后请求相同的 URL 会命中强制缓存。</p>
 
       
     </div>
@@ -531,6 +617,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/01/面试--Vue的diff/" rel="prev" title="面试--Vue的diff">
+                面试--Vue的diff <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -621,7 +711,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -698,7 +788,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#页面性能涉及的问题"><span class="nav-number">1.</span> <span class="nav-text">页面性能涉及的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提升页面性能的方法有哪些"><span class="nav-number">1.1.</span> <span class="nav-text">提升页面性能的方法有哪些</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非核心代码异步加载"><span class="nav-number">1.1.1.</span> <span class="nav-text">非核心代码异步加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用浏览器缓存"><span class="nav-number">1.1.2.</span> <span class="nav-text">利用浏览器缓存</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#页面性能涉及的问题"><span class="nav-number">1.</span> <span class="nav-text">页面性能涉及的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提升页面性能的方法有哪些"><span class="nav-number">1.1.</span> <span class="nav-text">提升页面性能的方法有哪些</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#非核心代码异步加载"><span class="nav-number">1.1.1.</span> <span class="nav-text">非核心代码异步加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用浏览器缓存"><span class="nav-number">1.1.2.</span> <span class="nav-text">利用浏览器缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">1.2.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存相关"><span class="nav-number">1.2.1.</span> <span class="nav-text">缓存相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存过程分析"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">缓存过程分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#强缓存"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">协商缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存机制"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">缓存机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实际场景应用缓存策略"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">实际场景应用缓存策略</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
